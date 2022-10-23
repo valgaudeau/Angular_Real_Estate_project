@@ -1,5 +1,27 @@
+/*
 .propImg
 {
   height: 280px;
   width: 250px;
+}
+*/
+
+/* .img-wrapper
+{
+  overflow:hidden;
+} */
+
+.card:hover
+{
+  transform:scale(1.1, 1.1); /* this is for zooming in and zooming out */
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
+  opacity: .8;
+}
+
+.card
+{
+  transform:scale(1, 1); /* this is for zooming in and zooming out */
+  transition-duration: 500ms;
+  transition-timing-function: ease-out;
 }
