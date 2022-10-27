@@ -49,15 +49,6 @@ export class PropertyListComponent implements OnInit {
     // }
 
     // this.separatePropertiesByType();
-
-    // this.housingService.getAllProperties().subscribe(
-    //     data=>{
-    //     this.properties = data;
-    //     console.log(data)
-    //   }, error => {
-    //     console.log(error);
-    //   }
-    // )
   }
 
   // Need a method here which we can call in ngOnInit() that will fill the buyProperties and rentProperties arrays

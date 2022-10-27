@@ -1,4 +1,29 @@
-<p>
-  add-property works!
-  <button (click)="onBack()" class="btn btn-primary">Back</button>
-</p>
+<div class="card">
+  <div class="card-heaer">
+    Add New Property
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit(Form)" #Form="ngForm">
+      <div class="form-group col-12">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" ngModel name="Name" required>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="type">Type</label>
+        <input type="text" class="form-control" ngModel name="Type" required>
+      </div>
+
+      <div class="form-group col-12">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" ngModel name="Price" required>
+      </div>
+
+      <div class="form-group col-12">
+        <button type="submit" class="btn btn-primary me-2 mt-2">Save</button> <!-- me-2 at the end is for margin-end by 2, see https://getbootstrap.com/docs/5.0/utilities/spacing/ -->
+        <button type="reset" class="btn btn-primary mt-2">reset</button>
+      </div>
+
+    </form>
+  </div>
+</div>
