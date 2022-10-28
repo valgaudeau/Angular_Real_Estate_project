@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-userRegister',
@@ -12,10 +12,6 @@ export class UserRegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
-
-
-
 
     // this.registrationForm = new FormGroup({
     //   userName: new FormControl('Mark', Validators.required),
@@ -30,7 +26,8 @@ export class UserRegisterComponent implements OnInit {
   //     return fg.get('password').value === fg.get('confirmPassword').value ? { notmatched: false } : { notmatched: true };
   // }
 
-  onSubmit(){
+  onSubmit(form : NgForm){
+    console.log(form);
     // console.log(this.registrationForm);
   }
 
