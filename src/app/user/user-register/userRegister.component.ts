@@ -13,7 +13,10 @@ export class UserRegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registrationForm = new FormGroup({
-      userName: new FormControl('Mark', Validators.required)
+      userName: new FormControl('Mark', Validators.required),
+      email: new FormControl(null, [Validators.required, Validators.email]), // Here we use an array of validators passed in the second argument. This is how we have multiple validators with Reactive Forms
+      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      confirmPassword: new FormControl(null, [Validators.required])
     });
   }
 
