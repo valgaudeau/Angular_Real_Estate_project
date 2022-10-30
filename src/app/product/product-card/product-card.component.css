@@ -12,7 +12,7 @@ img
 
 .card:hover
 {
-  transform:scale(1.1, 1.1); /* this is for zooming in and zooming out */
+  transform:scale(1.07, 1.07); /* this is for zooming in and zooming out */
   transition-duration: 500ms;
   transition-timing-function: ease-out;
   opacity: .8;

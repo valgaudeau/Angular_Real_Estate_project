@@ -9,7 +9,7 @@
         <label for="name">Name</label>
         <input type="text" class="form-control" #propName="ngModel" ngModel name="Name" required minlength="5">
         <span *ngIf="!propName.valid && propName.touched" class="error-block">
-          <span *ngIf="propName.errors?.['required']"> Please enter a name for the property you want to add! </span>
+          <span *ngIf="propName.errors?.['required']"> Please enter a name for the product you want to add! </span>
           <span *ngIf="propName.errors?.['minlength']"> Name must be at least 5 character long </span>
         </span>
       </div>
@@ -18,7 +18,7 @@
         <label for="type">Type</label>
         <input type="text" class="form-control" #propType="ngModel" ngModel name="Type" required>
         <span *ngIf="!propType.valid && propType.touched" class="error-block">
-          <span *ngIf="propType.errors?.['required']"> Please enter the type of property you want to add </span>
+          <span *ngIf="propType.errors?.['required']"> Please enter the type of product you want to add </span>
         </span>
       </div>
 
