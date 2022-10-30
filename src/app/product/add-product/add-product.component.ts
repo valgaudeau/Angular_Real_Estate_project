@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -9,9 +9,16 @@ import { NgForm } from '@angular/forms';
 })
 export class AddProductComponent implements OnInit {
 
+  @ViewChild('Form')
+  addProductForm!: NgForm;
   constructor(private router: Router) { }
 
   ngOnInit() {
+    // this.addPropertyForm.controls['Name'].setValue('Default Value');
+
+    setTimeout(() => {
+      this.addProductForm.controls['Name'].setValue('Default Value');
+    }, 100)
   }
 
   onBack()
@@ -19,8 +26,9 @@ export class AddProductComponent implements OnInit {
     this.router.navigate(['/'])
   }
 
-  onSubmit(form : NgForm){
-    console.log(form);
+  onSubmit(){
+    // console.log(form);
+    console.log(this.addProductForm);
   }
 
 }

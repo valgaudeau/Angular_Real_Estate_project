@@ -6,7 +6,7 @@
     </div>
   <!-- ABOUT FORM VALIDATION: https://angular.io/guide/form-validation -->
     <div class="card-body">
-      <form (ngSubmit)="onSubmit(Form)" #Form="ngForm">
+      <form (ngSubmit)="onSubmit()" #Form="ngForm">
         <div class="form-group col-12">
           <label for="name">Name</label>
           <input type="text" class="form-control" #propName="ngModel" ngModel name="Name" required minlength="5">
