@@ -26,18 +26,18 @@ export class ProductListComponent implements OnInit {
     // from an observer. Those 3 notifications are next, error, and complete.
     // next allows us to specify what we want to do when the observable emits the next value. Since this is an HTTP request, it only emits one time.
     // error allows us to define what to do if the observable emits an error.
-    this.productService.getAllProperties().subscribe({
-      next: properties => this.allProducts = properties,
+    this.productService.getAllProducts().subscribe({
+      next: products => this.allProducts = products,
       error: err => this.errorMessage = err
     })
 
-    this.productService.getAllProperties().subscribe({
-      next: properties => this.allSpaceships = properties.filter(property => property.SellRent == 1),
+    this.productService.getAllProducts().subscribe({
+      next: products => this.allSpaceships = products.filter(products => products.SpaceshipOrRobot == 1),
       error: err => this.errorMessage = err
     })
 
-    this.productService.getAllProperties().subscribe({
-      next: properties => this.allRobots = properties.filter(property => property.SellRent == 2),
+    this.productService.getAllProducts().subscribe({
+      next: products => this.allRobots = products.filter(products => products.SpaceshipOrRobot == 2),
       error: err => this.errorMessage = err
     })
 

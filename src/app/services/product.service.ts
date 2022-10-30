@@ -8,7 +8,7 @@ import { Observable, catchError, tap, throwError } from 'rxjs';
 })
 export class ProductService {
 
-private propertyUrl = './assets/properties.json';
+private propertyUrl = './assets/products.json';
 
 constructor(private http:HttpClient) { }
 
@@ -16,7 +16,7 @@ constructor(private http:HttpClient) { }
 // The tap operator allows to access the item emitted by the Observable without modifying it. This operator takes in an arrow function. The parameter 'data' is the emitted data,
 // and the arrow function is what we want to do with it. So right now we have (data => console.log('All', JSON.stringify(data))) to log all of the emitted data to the console.
 // Next, we have the catchError function. Often the emitted data will have errors, and we want our pipe to catch these issues.
-getAllProperties() : Observable<IProduct[]>
+getAllProducts() : Observable<IProduct[]>
 {
   return this.http.get<IProduct[]>(this.propertyUrl).pipe(
     tap(data => console.log('All', JSON.stringify(data))),

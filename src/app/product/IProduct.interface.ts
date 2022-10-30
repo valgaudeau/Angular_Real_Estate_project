@@ -1,6 +1,6 @@
 export interface IProduct {
   Id: number;
-  SellRent: number
+  SpaceshipOrRobot: number
   Name: string;
   Type: string;
   Price: number;
