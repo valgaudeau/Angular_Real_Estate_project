@@ -1,14 +1,14 @@
 <div class="row">
 
-  <ng-template [ngIf]="sellOrRentRoute == 1">
-    <div *ngFor="let rentProperty of buyProperties" class="shadow-lg col-sm-4 p-3">
-      <app-product-card [property]="rentProperty"></app-product-card>
+  <ng-template [ngIf]="spaceshipOrRobot == 1">
+    <div *ngFor="let spaceship of allSpaceships" class="shadow-lg col-sm-4 p-3">
+      <app-product-card [product]="spaceship"></app-product-card>
     </div>
   </ng-template>
 
-  <ng-template [ngIf]="sellOrRentRoute == 2">
-    <div *ngFor="let rentProperty of rentProperties" class="shadow-lg col-sm-4 p-3">
-      <app-product-card [property]="rentProperty"></app-product-card>
+  <ng-template [ngIf]="spaceshipOrRobot == 2">
+    <div *ngFor="let robot of allRobots" class="shadow-lg col-sm-4 p-3">
+      <app-product-card [product]="robot"></app-product-card>
     </div>
   </ng-template>
 

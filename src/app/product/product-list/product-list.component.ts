@@ -9,10 +9,10 @@ import { IProduct } from '../IProduct.interface';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  sellOrRentRoute = 1; // by default, we will will show the properties available for purchase. If value = 2, then we have to display properties up for rent
-  allProperties: IProduct[] = [];
-  buyProperties: IProduct[] = [];
-  rentProperties: IProduct[] = [];
+  spaceshipOrRobot = 1; // by default, we will will show spaceships. If value = 2, we show robots
+  allProducts: IProduct[] = [];
+  allSpaceships: IProduct[] = [];
+  allRobots: IProduct[] = [];
   errorMessage: string = '';
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
@@ -20,24 +20,24 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     if(this.route.snapshot.url.toString()) // this gives us the current path of the route. We need this to identify is we are on the rent-property path to display the appropriate properties.
     {
-      this.sellOrRentRoute = 2; // we are on rent-property URL
+      this.spaceshipOrRobot = 2; // we are on rent-property URL
     }
     // We call the subscribe method passing in an observer object. The observer object provides functions to react to the different types of notifications we can receive
     // from an observer. Those 3 notifications are next, error, and complete.
     // next allows us to specify what we want to do when the observable emits the next value. Since this is an HTTP request, it only emits one time.
     // error allows us to define what to do if the observable emits an error.
     this.productService.getAllProperties().subscribe({
-      next: properties => this.allProperties = properties,
+      next: properties => this.allProducts = properties,
       error: err => this.errorMessage = err
     })
 
     this.productService.getAllProperties().subscribe({
-      next: properties => this.buyProperties = properties.filter(property => property.SellRent == 1),
+      next: properties => this.allSpaceships = properties.filter(property => property.SellRent == 1),
       error: err => this.errorMessage = err
     })
 
     this.productService.getAllProperties().subscribe({
-      next: properties => this.rentProperties = properties.filter(property => property.SellRent == 2),
+      next: properties => this.allRobots = properties.filter(property => property.SellRent == 2),
       error: err => this.errorMessage = err
     })
 

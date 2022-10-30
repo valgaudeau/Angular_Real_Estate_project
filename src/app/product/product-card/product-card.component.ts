@@ -11,5 +11,5 @@ import { IProduct } from '../IProduct.interface';
 
 )
 export class ProductCardComponent{
-  @Input() property: IProduct | undefined;
+  @Input() product: IProduct | undefined;
 }

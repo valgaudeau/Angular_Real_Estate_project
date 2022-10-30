@@ -16,9 +16,9 @@ import { UserLoginComponent } from './user/user-login/userLogin.component';
 
 const appRoutes: Routes = [
   {path: '', component: ProductListComponent},
-  {path: 'rent-property', component: ProductListComponent},
-  {path: 'add-property', component: AddProductComponent},
-  {path: 'property-detail/:id', component: ProductDetailComponent},
+  {path: 'robots', component: ProductListComponent},
+  {path: 'add-product', component: AddProductComponent},
+  {path: 'product-detail/:id', component: ProductDetailComponent},
   {path: 'user/login', component: UserLoginComponent},
   {path: 'user/register', component: UserRegisterComponent},
   {path: '**', component: ProductListComponent}
