@@ -10,7 +10,7 @@
   {
     "Id":2,
     "SpaceshipOrRobot": 1,
-    "Name":"MILLENIUM FALCON",
+    "Name":"MILLENIUM",
     "Type":"Spaceship",
     "Price":53000,
     "Image":"millenium-falcon"

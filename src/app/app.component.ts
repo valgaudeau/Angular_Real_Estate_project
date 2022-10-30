@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'real_estate';
+  backgroundImage: string = "assets/images/x-wing.PNG"
 }
+
+
