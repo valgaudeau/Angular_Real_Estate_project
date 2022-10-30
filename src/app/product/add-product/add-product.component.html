@@ -1,37 +1,42 @@
-<div class="card">
-  <div class="card-header">
-    LIST A NEW SCI-FI PRODUCT HERE!
-  </div>
+<div class="row">
+  <div class="col-6 m-auto">
+  <div class="card m-auto">
+    <div class="card-header">
+      LIST NEW SCI-FI PRODUCT HERE!
+    </div>
   <!-- ABOUT FORM VALIDATION: https://angular.io/guide/form-validation -->
-  <div class="card-body">
-    <form (ngSubmit)="onSubmit(Form)" #Form="ngForm">
-      <div class="form-group col-12">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" #propName="ngModel" ngModel name="Name" required minlength="5">
-        <span *ngIf="!propName.valid && propName.touched" class="error-block">
-          <span *ngIf="propName.errors?.['required']"> Please enter a name for the product you want to add! </span>
-          <span *ngIf="propName.errors?.['minlength']"> Name must be at least 5 character long </span>
-        </span>
-      </div>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit(Form)" #Form="ngForm">
+        <div class="form-group col-12">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" #propName="ngModel" ngModel name="Name" required minlength="5">
+          <span *ngIf="!propName.valid && propName.touched" class="error-block">
+            <span *ngIf="propName.errors?.['required']"> Please enter a name for the product you want to add! </span>
+            <span *ngIf="propName.errors?.['minlength']"> Name must be at least 5 character long </span>
+          </span>
+        </div>
 
-      <div class="form-group col-12">
-        <label for="type">Type</label>
-        <input type="text" class="form-control" #propType="ngModel" ngModel name="Type" required>
-        <span *ngIf="!propType.valid && propType.touched" class="error-block">
-          <span *ngIf="propType.errors?.['required']"> Please enter the type of product you want to add </span>
-        </span>
-      </div>
+        <div class="form-group col-12">
+          <label for="type">Type</label>
+          <input type="text" class="form-control" #propType="ngModel" ngModel name="Type" required>
+          <span *ngIf="!propType.valid && propType.touched" class="error-block">
+            <span *ngIf="propType.errors?.['required']"> Please enter the type of product you want to add </span>
+          </span>
+        </div>
 
-      <div class="form-group col-12">
-        <label for="price">Price</label>
-        <input type="text" class="form-control" ngModel name="Price" required>
-      </div>
+        <div class="form-group col-12">
+          <label for="price">Price</label>
+          <input type="text" class="form-control" ngModel name="Price" required>
+        </div>
 
-      <div class="form-group col-12">
-        <button type="submit" class="btn btn-primary me-2 mt-2">Save</button> <!-- me-2 at the end is for margin-end by 2, see https://getbootstrap.com/docs/5.0/utilities/spacing/ -->
-        <button type="reset" class="btn btn-primary mt-2">reset</button>
-      </div>
+        <div class="form-group col-12">
+          <button type="submit" class="btn btn-primary me-2 mt-2">Save</button> <!-- me-2 at the end is for margin-end by 2, see https://getbootstrap.com/docs/5.0/utilities/spacing/ -->
+          <button type="reset" class="btn btn-primary mt-2">reset</button>
+        </div>
 
-    </form>
+      </form>
+    </div>
   </div>
 </div>
+</div>
+

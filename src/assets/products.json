@@ -54,6 +54,21 @@
     "Type":"Spaceship",
     "Price":150000,
     "Image":"the-enterprise"
+  },
+  {
+    "Id":8,
+    "SpaceshipOrRobot": 2,
+    "Name":"IRON GIANT",
+    "Type":"Robot",
+    "Price":200000,
+    "Image":"iron-giant"
+  },
+  {
+    "Id":9,
+    "SpaceshipOrRobot": 2,
+    "Name":"TERMINATOR",
+    "Type":"Robot",
+    "Price":67500,
+    "Image":"terminator"
   }
-
 ]
