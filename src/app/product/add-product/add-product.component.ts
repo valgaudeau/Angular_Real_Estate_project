@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-add-property',
-  templateUrl: './add-property.component.html',
-  styleUrls: ['./add-property.component.css']
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrls: ['./add-product.component.css']
 })
-export class AddPropertyComponent implements OnInit {
+export class AddProductComponent implements OnInit {
 
   constructor(private router: Router) { }
 

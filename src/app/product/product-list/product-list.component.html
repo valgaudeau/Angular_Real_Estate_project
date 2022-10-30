@@ -2,17 +2,17 @@
 
   <ng-template [ngIf]="sellOrRentRoute == 1">
     <div *ngFor="let rentProperty of buyProperties" class="shadow-lg col-sm-4 p-3">
-      <app-property-card [property]="rentProperty"></app-property-card>
+      <app-product-card [property]="rentProperty"></app-product-card>
     </div>
   </ng-template>
 
   <ng-template [ngIf]="sellOrRentRoute == 2">
     <div *ngFor="let rentProperty of rentProperties" class="shadow-lg col-sm-4 p-3">
-      <app-property-card [property]="rentProperty"></app-property-card>
+      <app-product-card [property]="rentProperty"></app-product-card>
     </div>
   </ng-template>
 
   <!-- <div *ngFor="let property of allProperties" class="shadow-lg col-sm-4 p-3">
-    <app-property-card [property]="property"></app-property-card>
+    <app-product-card [property]="property"></app-product-card>
   </div> -->
 </div>

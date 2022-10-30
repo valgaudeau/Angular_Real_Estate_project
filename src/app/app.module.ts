@@ -5,33 +5,33 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { PropertyCardComponent } from './property/property-card/property-card.component';
-import { PropertyListComponent } from './property/property-list/property-list.component';
+import { ProductCardComponent } from './product/product-card/product-card.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { HousingService } from './services/housing.service';
-import { AddPropertyComponent } from './property/add-property/add-property.component';
-import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
+import { ProductService } from './services/product.service';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { UserRegisterComponent } from './user/user-register/userRegister.component';
 import { UserLoginComponent } from './user/user-login/userLogin.component';
 
 const appRoutes: Routes = [
-  {path: '', component: PropertyListComponent},
-  {path: 'rent-property', component: PropertyListComponent},
-  {path: 'add-property', component: AddPropertyComponent},
-  {path: 'property-detail/:id', component: PropertyDetailComponent},
+  {path: '', component: ProductListComponent},
+  {path: 'rent-property', component: ProductListComponent},
+  {path: 'add-property', component: AddProductComponent},
+  {path: 'property-detail/:id', component: ProductDetailComponent},
   {path: 'user/login', component: UserLoginComponent},
   {path: 'user/register', component: UserRegisterComponent},
-  {path: '**', component: PropertyListComponent}
+  {path: '**', component: ProductListComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    PropertyCardComponent,
-    PropertyListComponent,
+    ProductCardComponent,
+    ProductListComponent,
       NavBarComponent,
-      AddPropertyComponent,
-      PropertyDetailComponent,
+      AddProductComponent,
+      ProductDetailComponent,
       UserRegisterComponent,
       UserLoginComponent
    ],
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [HousingService],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

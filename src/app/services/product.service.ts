@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { IProperty } from '../property/IProperty.interface';
+import { IProduct } from '../product/IProduct.interface';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root' // Service is registered in the root, meaning it can be accessed from any component or service in the application. Alternative = component injector.
 })
-export class HousingService {
+export class ProductService {
 
 private propertyUrl = './assets/properties.json';
 
@@ -16,9 +16,9 @@ constructor(private http:HttpClient) { }
 // The tap operator allows to access the item emitted by the Observable without modifying it. This operator takes in an arrow function. The parameter 'data' is the emitted data,
 // and the arrow function is what we want to do with it. So right now we have (data => console.log('All', JSON.stringify(data))) to log all of the emitted data to the console.
 // Next, we have the catchError function. Often the emitted data will have errors, and we want our pipe to catch these issues.
-getAllProperties() : Observable<IProperty[]>
+getAllProperties() : Observable<IProduct[]>
 {
-  return this.http.get<IProperty[]>(this.propertyUrl).pipe(
+  return this.http.get<IProduct[]>(this.propertyUrl).pipe(
     tap(data => console.log('All', JSON.stringify(data))),
     catchError(this.handleError)
   );
