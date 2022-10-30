@@ -2,26 +2,26 @@
   {
     "Id":1,
     "SpaceshipOrRobot": 1,
-    "Name":"Birla House",
-    "Type":"House",
-    "Price":12000,
-    "Image":"prop-1"
+    "Name":"X-WING",
+    "Type":"Spaceship",
+    "Price":14000,
+    "Image":"x-wing"
   },
   {
     "Id":2,
     "SpaceshipOrRobot": 1,
-    "Name":"Erose Villa",
-    "Type":"House",
-    "Price":11400,
-    "Image":"prop-2"
+    "Name":"MILLENIUM FALCON",
+    "Type":"Spaceship",
+    "Price":53000,
+    "Image":"millenium-falcon"
   },
   {
     "Id":3,
     "SpaceshipOrRobot": 1,
-    "Name":"placeholder 3",
-    "Type":"House",
-    "Price":15000,
-    "Image":"prop-3"
+    "Name":"IMPERIAL FIGHTER",
+    "Type":"Spaceship",
+    "Price":15500,
+    "Image":"imperial-fighter"
   },
   {
     "Id":4,
@@ -42,9 +42,18 @@
   {
     "Id":6,
     "SpaceshipOrRobot": 1,
-    "Name":"placeholder 6",
-    "Type":"House",
-    "Price":12000,
-    "Image":"prop-6"
+    "Name":"RAVEN SPACESHIP",
+    "Type":"Spaceship",
+    "Price":24000,
+    "Image":"raven-spaceship"
+  },
+  {
+    "Id":7,
+    "SpaceshipOrRobot": 1,
+    "Name":"THE ENTERPRISE",
+    "Type":"Spaceship",
+    "Price":150000,
+    "Image":"the-enterprise"
   }
+
 ]
