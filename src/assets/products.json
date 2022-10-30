@@ -26,18 +26,18 @@
   {
     "Id":4,
     "SpaceshipOrRobot": 2,
-    "Name":"placeholder 4",
-    "Type":"House",
+    "Name":"GLADOS",
+    "Type":"Robot",
     "Price":16000,
-    "Image":"prop-4"
+    "Image":"glados"
   },
   {
     "Id":5,
     "SpaceshipOrRobot": 2,
-    "Name":"placeholder 5",
-    "Type":"House",
-    "Price":12000,
-    "Image":"prop-5"
+    "Name":"R2D2",
+    "Type":"Robot",
+    "Price":24000,
+    "Image":"r2d2"
   },
   {
     "Id":6,
