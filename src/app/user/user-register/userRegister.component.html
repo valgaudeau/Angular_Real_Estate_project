@@ -12,7 +12,7 @@
             <input type="text" class="form-control" formControlName="userName"
             [ngClass]="{'is-invalid':submitted && registrationForm.controls['userName'].errors}">
             <div *ngIf="registrationForm.controls['userName'].touched && registrationForm.controls['userName'].errors" class="text-danger">
-              Your Username must be atleast 5 character long
+              Your Username Must be Atleast 5 Character Long
             </div>
         </div>
 
@@ -23,12 +23,21 @@
           <div *ngIf="registrationForm.controls['email'].touched && registrationForm.controls['email'].errors" class="text-danger">
             Incorrect Email Format
           </div>
-      </div>
+        </div>
 
         <div class="form-group col-12">
           <label for="password" class="form-label">Password</label>
-          <input type="text" class="form-control" formControlName="password">
+          <input type="password" class="form-control" formControlName="password"
+          [ngClass]="{'is-invalid':submitted && registrationForm.controls['password'].errors}">
+          <div *ngIf="registrationForm.controls['password'].touched && registrationForm.controls['password'].errors" class="text-danger">
+            Your Password Must be Atleast 8 Character Long
+          </div>
         </div>
+
+        <!-- <div class="form-group col-12">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password">
+        </div> -->
 
         <!-- <div class="form-group col-12">
           <label for="cpassword" class="form-label">Confirm Password</label>
