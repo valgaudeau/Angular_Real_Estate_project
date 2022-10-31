@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import * as alertify from 'alertifyjs';
 
 @Component({
   selector: 'app-userRegister',
@@ -45,7 +46,8 @@ export class UserRegisterComponent implements OnInit {
     this.user = Object.assign(this.user, this.registrationForm.value);
     // localStorage.setItem('Users', JSON.stringify(this.user));
     this.userService.addUser(this.user);
-    alert("Success");
+    // alert("Success");
+    alertify.success("You have successfully registered!");
     this.registrationForm.reset(); // reset form when its submitted
     this.submitted = false; // if we go into this block of code, the form submission was successful, and we can now set this boolean to false again
   }
