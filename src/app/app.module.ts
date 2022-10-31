@@ -13,6 +13,7 @@ import { AddProductComponent } from './product/add-product/add-product.component
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { UserRegisterComponent } from './user/user-register/userRegister.component';
 import { UserLoginComponent } from './user/user-login/userLogin.component';
+import { UserService } from './services/user.service';
 
 const appRoutes: Routes = [
   {path: '', component: ProductListComponent},
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ProductService],
+  providers: [ProductService,
+              UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
