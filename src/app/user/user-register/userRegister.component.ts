@@ -39,6 +39,7 @@ export class UserRegisterComponent implements OnInit {
 
     // if the form is invalid, we don't do anything just return
     if(this.registrationForm.invalid){
+      alertify.error("Error encountered");
       return;
     }
 
