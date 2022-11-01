@@ -14,6 +14,7 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
 import { UserRegisterComponent } from './user/user-register/userRegister.component';
 import { UserLoginComponent } from './user/user-login/userLogin.component';
 import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
 
 const appRoutes: Routes = [
   {path: '', component: ProductListComponent},
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductService,
-              UserService],
+              UserService,
+              AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
