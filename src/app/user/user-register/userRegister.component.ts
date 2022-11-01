@@ -39,7 +39,8 @@ export class UserRegisterComponent implements OnInit {
 
     // if the form is invalid, we don't do anything just return
     if(this.registrationForm.invalid){
-      alertify.error("Error encountered");
+      alertify.set("notifier", "position", "top-center");
+      alertify.error("Error encountered, please enter valid data");
       return;
     }
 
@@ -48,6 +49,7 @@ export class UserRegisterComponent implements OnInit {
     // localStorage.setItem('Users', JSON.stringify(this.user));
     this.userService.addUser(this.user);
     // alert("Success");
+    alertify.set("notifier", "position", "top-center");
     alertify.success("You have successfully registered!");
     this.registrationForm.reset(); // reset form when its submitted
     this.submitted = false; // if we go into this block of code, the form submission was successful, and we can now set this boolean to false again
