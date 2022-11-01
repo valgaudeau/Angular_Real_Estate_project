@@ -13,10 +13,12 @@ export class NavBarComponent implements OnInit {
   }
 
   loggedIn(){
+    // retrieve the token that gets stored on login (see UserLogin component)
     return localStorage.getItem('token');
   }
 
   onLogout(){
+    // Delete the token stored on login
     localStorage.removeItem('token');
   }
 
