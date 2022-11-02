@@ -16,6 +16,8 @@ export class AddProductComponent implements OnInit {
   @ViewChild('formTabs', { static: false })
   formTabs?: TabsetComponent;
 
+  // productTypes: Array<string> = ['Spaceship', 'Robot'];
+
   constructor(private router: Router) { }
 
   ngOnInit() {

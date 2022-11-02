@@ -25,13 +25,11 @@
               <!-- Below is the class used by ngx bootstrap to style the radio buttons -->
               <!-- <p>Product Category </p> -->
               <div class="btn-group" btnRadioGroup>
-                <label class="btn btn-outline-primary me-2"
-                btnRatio=1 role="button" name="spaceshipOrRobot">
+                <label class="btn btn-outline-primary me-2" btnRadio=1 role="button" name="spaceshipOrRobot">
                 Spaceship
                 </label>
 
-                <label class="btn btn-outline-primary"
-                btnRatio=2 role="button" name="spaceshipOrRobot">
+                <label class="btn btn-outline-primary" btnRadio=2 role="button" name="spaceshipOrRobot">
                 Robot
                 </label>
               </div>
@@ -77,11 +75,11 @@
             <tab heading="Extra Details">
               <div class="from-group col-12 mt-2">
                 <label>Age of Product (in Years)</label>
-                <input type="text" class="form-control mt-2 mb-3">
+                <input type="text" class="form-control mt-2 mb-3" ngModel name="Age">
               </div>
               <div class="from-group col-12">
                 <label>Product Description</label>
-                <input type="text" class="form-control mt-2">
+                <input type="text" class="form-control mt-2" ngModel name="Description">
               </div>
               <button type="submit" class="btn btn-primary me-2 mt-2" (click)="selectTab(1)">Previous</button>
               <button type="submit" class="btn btn-primary me-2 mt-2">Save Product</button>
