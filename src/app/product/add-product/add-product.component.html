@@ -31,7 +31,7 @@
               </div>
 
               <div class="form-group col-12 mt-2">
-                <label for="price">Price</label>
+                <label for="price">Price (Imperial Credits)</label>
                 <input type="text" class="form-control" ngModel name="Price" required>
               </div>
 
@@ -45,7 +45,8 @@
 
             <!-- TAB 2 -->
             <tab heading="Images">
-              <div class="from-group col-12">
+              <div class="from-group col-12 mt-2">
+                <!-- Not sure how to implement this, will have to research it -->
                 <div class="photo-control">
                   <button class="mt-5" type="button">Upload Pictures</button> <br/>
                 </div>
@@ -58,7 +59,7 @@
 
             <!-- TAB 3 -->
             <tab heading="Extra Details">
-              <div class="from-group col-12">
+              <div class="from-group col-12 mt-2">
                 <label>Age of Product (in Years)</label>
                 <input type="text" class="form-control">
               </div>
@@ -67,6 +68,8 @@
                 <input type="text" class="form-control">
               </div>
               <button type="submit" class="btn btn-primary me-2 mt-2" (click)="selectTab(1)">Previous</button>
+              <button type="submit" class="btn btn-primary me-2 mt-2">Save Product</button>
+                <button type="reset" class="btn btn-primary mt-2">reset</button>
             </tab>
 
           </tabset>
