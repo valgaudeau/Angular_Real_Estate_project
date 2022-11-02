@@ -21,9 +21,9 @@ export class AddProductComponent implements OnInit {
   ngOnInit() {
     // this.addPropertyForm.controls['Name'].setValue('Default Value');
 
-    setTimeout(() => {
-      this.addProductForm.controls['Name'].setValue('Default Value');
-    }, 100)
+    // setTimeout(() => {
+    //   this.addProductForm.controls['Name'].setValue('Default Name');
+    // }, 100)
   }
 
   onBack()
