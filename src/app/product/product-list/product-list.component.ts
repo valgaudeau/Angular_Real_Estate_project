@@ -13,8 +13,8 @@ export class ProductListComponent implements OnInit {
   allProducts: IProduct[] = [];
   allSpaceships: IProduct[] = [];
   allRobots: IProduct[] = [];
-  spaceshipsLocalStorage: IProduct[] = [];
-  robotsLocalStorage: IProduct[] = [];
+  spaceshipsFromLocalStorage: IProduct[] = [];
+  robotsFromLocalStorage: IProduct[] = [];
   errorMessage: string = '';
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
@@ -32,9 +32,9 @@ export class ProductListComponent implements OnInit {
     console.log(newProduct);
 
     if(newProduct['SpaceshipOrRobot'] == 1){
-      this.spaceshipsLocalStorage[0] = newProduct;
+      this.spaceshipsFromLocalStorage[0] = newProduct;
     } else {
-      this.robotsLocalStorage[0] = newProduct;
+      this.robotsFromLocalStorage[0] = newProduct;
     }
 
     this.productService.getAllProducts().subscribe({
