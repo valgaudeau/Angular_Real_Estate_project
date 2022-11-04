@@ -17,7 +17,7 @@
                 <label for="name">Product Name</label>
                 <input type="text" class="form-control mt-2" #propName="ngModel" ngModel name="Name" required minlength="5">
                 <span *ngIf="!propName.valid && propName.touched" class="error-block">
-                  <span *ngIf="propName.errors?.['required']"> Please enter a name for the product you want to add! </span>
+                  <span *ngIf="propName.errors?.['required']"> Please enter a name for your product </span>
                   <span *ngIf="propName.errors?.['minlength']"> Name must be at least 5 character long </span>
                 </span>
               </div>
@@ -46,7 +46,7 @@
 
               <div class="form-group col-12 mt-2">
                 <label for="price">Price (Imperial Credits)</label>
-                <input type="text" class="form-control mt-2" ngModel name="Price" required>
+                <input type="number" class="form-control mt-2" ngModel name="Price" required (keypress)="onKeyPress($event)">
               </div>
 
               <div class="form-group col-12">
@@ -72,18 +72,22 @@
             </tab>
 
             <!-- TAB 3 -->
-            <tab heading="Extra Details">
+            <tab heading="Extra Product Details" ngModelGroup="ExtraInfo" #ExtraInfo="ngModelGroup">
               <div class="from-group col-12 mt-2">
-                <label>Age of Product (in Years)</label>
-                <input type="text" class="form-control mt-2 mb-3" ngModel name="Age">
+                <label>Age of Product (Years)</label>
+                <input type="number" class="form-control mt-2 mb-3" ngModel name="Age" required (keypress)="onKeyPress($event)">
               </div>
               <div class="from-group col-12">
                 <label>Product Description</label>
-                <input type="text" class="form-control mt-2" ngModel name="Description">
+                <input type="text" class="form-control mt-2" #propDescription="ngModel" ngModel name="Description" required>
+                <!-- Not sure why this error message isnt working -->
+                <span *ngIf="!propName.valid && propName.touched" class="error-block">
+                  <span *ngIf="propName.errors?.['required']"> Please enter a description for your product</span>
+                </span>
               </div>
               <button type="button" class="btn btn-primary me-2 mt-2" (click)="selectTab(1)">Previous</button>
-              <button type="submit" class="btn btn-primary me-2 mt-2">Save Product</button>
-                <button type="reset" class="btn btn-primary mt-2">reset</button>
+              <button type="submit" class="btn btn-primary me-2 mt-2" [disabled]="!ExtraInfo.valid || !BasicInfo.valid">Save Product</button>
+              <button type="reset" class="btn btn-primary mt-2">reset</button>
             </tab>
 
           </tabset>
