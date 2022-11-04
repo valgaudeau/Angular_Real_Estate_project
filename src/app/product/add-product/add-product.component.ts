@@ -67,11 +67,17 @@ export class AddProductComponent implements OnInit {
     // console.log(form);
     alertify.set("notifier", "position", "top-center");
     alertify.success("You have successfully added a new product!")
-    console.log("The form has been submitted");
-    console.log('spaceship or robot = ' + this.addProductForm.value.BasicInfo.spaceshipOrRobot);
+    // console.log('spaceship or robot = ' + this.addProductForm.value.BasicInfo.spaceshipOrRobot);
     console.log(this.addProductForm);
     this.mapFormDataToPropertyProduct();
     this.productService.addProduct(this.productToAdd);
+
+    // The following code redirects the user to the robot page if they added a robot product, or main page if they added a spaceship
+    if(this.addProductForm.value.BasicInfo.spaceshipOrRobot == 2){
+      this.router.navigate(['robots']);
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 
     // this function maps the data we are receiving through our form to the productToAdd product

@@ -13,6 +13,8 @@ export class ProductListComponent implements OnInit {
   allProducts: IProduct[] = [];
   allSpaceships: IProduct[] = [];
   allRobots: IProduct[] = [];
+  spaceshipsLocalStorage: IProduct[] = [];
+  robotsLocalStorage: IProduct[] = [];
   errorMessage: string = '';
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
@@ -26,6 +28,15 @@ export class ProductListComponent implements OnInit {
     // from an observer. Those 3 notifications are next, error, and complete.
     // next allows us to specify what we want to do when the observable emits the next value. Since this is an HTTP request, it only emits one time.
     // error allows us to define what to do if the observable emits an error.
+    const newProduct = JSON.parse(localStorage.getItem('newProduct') || '{}');
+    console.log(newProduct);
+
+    if(newProduct['SpaceshipOrRobot'] == 1){
+      this.spaceshipsLocalStorage[0] = newProduct;
+    } else {
+      this.robotsLocalStorage[0] = newProduct;
+    }
+
     this.productService.getAllProducts().subscribe({
       next: products => this.allProducts = products,
       error: err => this.errorMessage = err
@@ -33,7 +44,7 @@ export class ProductListComponent implements OnInit {
 
     this.productService.getAllProducts().subscribe({
       next: products => this.allSpaceships = products.filter(products => products.SpaceshipOrRobot == 1),
-      error: err => this.errorMessage = err
+      error: err => this.errorMessage = err,
     })
 
     this.productService.getAllProducts().subscribe({
@@ -41,30 +52,6 @@ export class ProductListComponent implements OnInit {
       error: err => this.errorMessage = err
     })
 
-    // console.log("HI FROM ngOnInit in property list component");
-
-    // DONT KNOW WHY BUT THIS DOESNT WORK - DOESNT SHOW UP IN THE CONSOLE, AND HAVING THE SEPARATEPROPERTIES FUNCTION DOESN'T DO THE JOB
-    // for(let property of this.allProperties){
-    //   console.log(property.Name + " hey this is property in ngOnInit");
-    // }
-
-    // this.separatePropertiesByType();
   }
-
-  // Need a method here which we can call in ngOnInit() that will fill the buyProperties and rentProperties arrays
-  // separatePropertiesByType(){
-  //   for(let property of this.allProperties){
-  //     if(property.SellRent == 1)
-  //     {
-  //       this.buyProperties.push(property);
-  //       console.log(property + " added to buyProperty array");
-  //     }
-  //     else
-  //     {
-  //       this.rentProperties.push(property);
-  //       console.log(property + " added to rentProperty array");
-  //     }
-  //   }
-  // }
 
 }
