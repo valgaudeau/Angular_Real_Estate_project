@@ -6,6 +6,16 @@
   color: red;
 }
 
+.tab-panel{
+  padding: 10px;
+  /* border: 1px solid grey;
+  border-radius: 4px; */
+}
+
+/* .tab-panel label{
+  font-weight: bold;
+} */
+
 .photo-control{
   min-height: 300px;
   vertical-align: middle;
@@ -14,3 +24,7 @@
   margin: 5px;
 }
 
+.card-header {
+  text-align: center;
+  font-weight: bold;
+}

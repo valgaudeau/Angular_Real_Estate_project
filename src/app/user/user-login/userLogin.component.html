@@ -2,19 +2,19 @@
   <div class="col-6 m-auto">
     <div class="card m-auto">
       <div class="card-header">
-        Login
+        LOGIN
       </div>
       <div class="card-body">
         <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
 
           <div class="form-group col-12">
             <label>Name</label>
-            <input class="form-control" required ngModel name="userName">
+            <input class="form-control mt-2" required ngModel name="userName">
           </div>
 
-          <div class="form-group col-12">
+          <div class="form-group col-12 mt-2">
             <label>Password</label>
-            <input class="form-control" required type="password" ngModel name="password">
+            <input class="form-control mt-2" required type="password" ngModel name="password">
           </div>
 
           <div class="form-group col-12 mt-2">
