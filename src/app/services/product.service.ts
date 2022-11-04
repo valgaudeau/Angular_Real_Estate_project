@@ -47,4 +47,8 @@ private handleError(err: HttpErrorResponse){
   return throwError(()=>errorMessage);
 }
 
+addProduct(product: IProduct){
+  localStorage.setItem('newProduct', JSON.stringify(product));
+}
+
 }

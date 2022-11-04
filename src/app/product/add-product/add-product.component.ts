@@ -2,7 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, NgForm } from '@angular/forms';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
+import { IProduct } from '../IProduct.interface';
 import * as alertify from 'alertifyjs'
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-add-product',
@@ -17,13 +19,21 @@ export class AddProductComponent implements OnInit {
   @ViewChild('formTabs', { static: false })
   formTabs?: TabsetComponent;
 
+  // Think I need to convert my interface to a class to create the object I need here - See https://stackoverflow.com/questions/52616172/how-to-initialize-an-object-in-typescript
+  productToAdd: IProduct = {
+    Id: -1,
+    Name: 'default name',
+    SpaceshipOrRobot: -1,
+    Price: -1,
+    Age: -1,
+    Description: 'default description'
+  }
   // productTypes: Array<string> = ['Spaceship', 'Robot'];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private productService: ProductService) { }
 
   ngOnInit() {
     // this.addPropertyForm.controls['Name'].setValue('Default Value');
-
     // setTimeout(() => {
     //   this.addProductForm.controls['Name'].setValue('Default Name');
     // }, 100)
@@ -44,8 +54,8 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(){
-    // If the invalid error comes from group 1, we need to move to that tab. We can use the getters to retrieve the status
-    // error comes from first tab, move view to first tab
+    // If the invalid error comes from group 1, we need to move to that tab. We can use the getters to retrieve the status.
+    // Logic: error comes from first tab, move view to first tab.
     if(this.basicInfoModelGroup.invalid) {
       if(this.formTabs){
         this.formTabs.tabs[0].active = true;
@@ -54,17 +64,26 @@ export class AddProductComponent implements OnInit {
         return;
       }
     }
-
-    // if error comes from the last tab, move view to last tab
-    // Don't need this one actually since if on last tab, can only save if all fields on the tab are filled & valid. Might need it for IMAGE tab though later, not sure how to implement that yet.
-
     // console.log(form);
     alertify.set("notifier", "position", "top-center");
     alertify.success("You have successfully added a new product!")
     console.log("The form has been submitted");
     console.log('spaceship or robot = ' + this.addProductForm.value.BasicInfo.spaceshipOrRobot);
     console.log(this.addProductForm);
+    this.mapFormDataToPropertyProduct();
+    this.productService.addProduct(this.productToAdd);
   }
+
+    // this function maps the data we are receiving through our form to the productToAdd product
+    mapFormDataToPropertyProduct(): void {
+      this.productToAdd.Name = this.addProductForm.value.BasicInfo.Name;
+      this.productToAdd.SpaceshipOrRobot = this.addProductForm.value.BasicInfo.spaceshipOrRobot;
+      this.productToAdd.Price = this.addProductForm.value.BasicInfo.Price;
+      // I'll implement image mapping later, I need to think about how to handle image uploads and such first
+      // this.productToAdd.Image = this.addProductForm.value.ImageTab.Image;
+      this.productToAdd.Age = this.addProductForm.value.ExtraInfo.Age;
+      this.productToAdd.Description = this.addProductForm.value.ExtraInfo.Description;
+    }
 
   // See https://valor-software.com/ngx-bootstrap/#/components/tabs?tab=overview - Documentation for all of this
   selectTab(tabId: number) {
