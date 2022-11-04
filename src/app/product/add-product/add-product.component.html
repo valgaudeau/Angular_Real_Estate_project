@@ -75,14 +75,16 @@
             <tab heading="Extra Product Details" ngModelGroup="ExtraInfo" #ExtraInfo="ngModelGroup">
               <div class="from-group col-12 mt-2">
                 <label>Age of Product (Years)</label>
-                <input type="number" class="form-control mt-2 mb-3" ngModel name="Age" required (keypress)="onKeyPress($event)">
+                <input type="number" class="form-control mt-2 mb-2"  #propAge="ngModel" ngModel name="Age" required (keypress)="onKeyPress($event)">
+                <span *ngIf="!propAge.valid && propAge.touched" class="error-block">
+                  <span *ngIf="propAge.errors?.['required']"> Please enter your product's age</span>
+                </span>
               </div>
               <div class="from-group col-12">
                 <label>Product Description</label>
                 <input type="text" class="form-control mt-2" #propDescription="ngModel" ngModel name="Description" required>
-                <!-- Not sure why this error message isnt working -->
-                <span *ngIf="!propName.valid && propName.touched" class="error-block">
-                  <span *ngIf="propName.errors?.['required']"> Please enter a description for your product</span>
+                <span *ngIf="!propDescription.valid && propDescription.touched" class="error-block">
+                  <span *ngIf="propDescription.errors?.['required']"> Please enter a description for your product</span>
                 </span>
               </div>
               <button type="button" class="btn btn-primary me-2 mt-2" (click)="selectTab(1)">Previous</button>
