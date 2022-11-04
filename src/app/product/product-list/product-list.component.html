@@ -4,11 +4,17 @@
     <div *ngFor="let spaceship of allSpaceships" class="shadow-lg col-sm-4 p-4">
       <app-product-card [product]="spaceship"></app-product-card>
     </div>
+    <div *ngFor="let localStorageSpaceship of spaceshipsLocalStorage" class="shadow-lg col-sm-4 p-4">
+      <app-product-card [product]="localStorageSpaceship"></app-product-card>
+    </div>
   </ng-template>
 
   <ng-template [ngIf]="spaceshipOrRobot == 2">
     <div *ngFor="let robot of allRobots" class="shadow-lg col-sm-4 p-4">
       <app-product-card [product]="robot"></app-product-card>
+    </div>
+    <div *ngFor="let localStorageRobot of robotsLocalStorage" class="shadow-lg col-sm-4 p-4">
+      <app-product-card [product]="localStorageRobot"></app-product-card>
     </div>
   </ng-template>
 

@@ -2,7 +2,7 @@
 <div class="card">
   <div class="img-wrapper">
     <img *ngIf="product?.Image" class="card-img-top" src="assets/images/{{product?.Image}}.PNG">
-    <img *ngIf="!product?.Image" class="card-img-top" src="assets/images/default.jpg">
+    <img *ngIf="!product?.Image" class="card-img-top" src="assets/images/default.PNG">
     <ul class="list-inline text-center">
       <li class="list-inline-item">
         <button class="btn btn-primary" routerLink="/product-detail/{{product?.Id}}"><i class="fa-solid fa-pen-to-square"></i></button>
