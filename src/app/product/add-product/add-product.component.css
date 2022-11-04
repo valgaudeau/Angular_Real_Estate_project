@@ -1,22 +1,22 @@
-.ng-invalid.ng-touched{
+.ng-invalid.ng-touched {
   border-color: red;
 }
 
-.error-block{
+.error-block {
   color: red;
 }
 
-.tab-panel{
+.tab-panel {
   padding: 10px;
   /* border: 1px solid grey;
   border-radius: 4px; */
 }
 
-/* .tab-panel label{
+/* .tab-panel label {
   font-weight: bold;
 } */
 
-.photo-control{
+.photo-control {
   min-height: 300px;
   vertical-align: middle;
   text-align: center;

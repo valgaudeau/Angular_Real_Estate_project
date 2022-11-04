@@ -1,12 +1,16 @@
-.ng-invalid.ng-touched{
+.ng-invalid.ng-touched {
   border-color: red;
 }
 
-.error-block{
+.error-block {
   color: red;
 }
 
 .card-header {
   text-align: center;
   font-weight: bold;
+}
+
+.link-primary {
+  text-decoration: none;
 }
