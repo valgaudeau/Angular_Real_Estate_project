@@ -35,6 +35,8 @@ export class AddProductComponent implements OnInit {
 
   onSubmit(){
     // console.log(form);
+    console.log("The form has been submitted");
+    console.log('spaceship or robot = ' + this.addProductForm.value.BasicInfo.spaceshipOrRobot);
     console.log(this.addProductForm);
   }
 

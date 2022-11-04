@@ -12,7 +12,7 @@
           <tabset #formTabs>
 
             <!-- TAB 1 -->
-            <tab heading="Core Product Information" id="tab1">
+            <tab heading="Core Product Information" id="tab1" ngModelGroup="BasicInfo" #BasicInfo="ngModelGroup">
               <div class="form-group col-12 mt-2 mb-3">
                 <label for="name">Product Name</label>
                 <input type="text" class="form-control mt-2" #propName="ngModel" ngModel name="Name" required minlength="5">
@@ -24,7 +24,7 @@
 
               <!-- Below is the class used by ngx bootstrap to style the radio buttons -->
               <!-- <p>Product Category </p> -->
-              <div class="btn-group" btnRadioGroup>
+              <div class="btn-group" btnRadioGroup ngModel name="spaceshipOrRobot" required>
                 <label class="btn btn-outline-primary me-2" btnRadio=1 role="button" name="spaceshipOrRobot">
                 Spaceship
                 </label>
@@ -50,7 +50,7 @@
               </div>
 
               <div class="form-group col-12">
-                <button type="submit" class="btn btn-primary me-2 mt-2" (click)="selectTab(1)">Next</button>
+                <button type="submit" class="btn btn-primary me-2 mt-2" (click)="selectTab(1)" [disabled]="!BasicInfo.valid">Next</button>
                 <!-- me-2 at the end is for margin-end by 2, see https://getbootstrap.com/docs/5.0/utilities/spacing/ -->
                 <!-- <button type="submit" class="btn btn-primary me-2 mt-2">Save</button>
                 <button type="reset" class="btn btn-primary mt-2">reset</button> -->
