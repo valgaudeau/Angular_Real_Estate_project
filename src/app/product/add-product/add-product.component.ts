@@ -30,11 +30,11 @@ export class AddProductComponent implements OnInit {
   }
 
   // Using these getters, we can retrieve information about the status FormGroup controls in the HTML
-  get basicInfo() {
+  get basicInfoModelGroup() {
     return this.addProductForm.controls['BasicInfo'] as FormGroup;
   }
 
-  get extraInfo() {
+  get extraInfoModelGroup() {
     return this.addProductForm.controls['ExtraInfo'] as FormGroup;
   }
 
@@ -46,7 +46,7 @@ export class AddProductComponent implements OnInit {
   onSubmit(){
     // If the invalid error comes from group 1, we need to move to that tab. We can use the getters to retrieve the status
     // error comes from first tab, move view to first tab
-    if(this.basicInfo.invalid) {
+    if(this.basicInfoModelGroup.invalid) {
       if(this.formTabs){
         this.formTabs.tabs[0].active = true;
         alertify.set("notifier", "position", "top-center");
@@ -56,17 +56,11 @@ export class AddProductComponent implements OnInit {
     }
 
     // if error comes from the last tab, move view to last tab
-    // Don't need this one actually since if on last tab, can only save if all fields on the tab are filled & valid
-    // if(this.extraInfo.invalid) {
-    //   if(this.formTabs){
-    //     this.formTabs.tabs[2].active = true;
-    //     alertify.set("notifier", "position", "top-center");
-    //     alertify.error("You need to fill in all of the fields on this tab before you can save your product!")
-    //     return;
-    //   }
-    // }
+    // Don't need this one actually since if on last tab, can only save if all fields on the tab are filled & valid. Might need it for IMAGE tab though later, not sure how to implement that yet.
 
     // console.log(form);
+    alertify.set("notifier", "position", "top-center");
+    alertify.success("You have successfully added a new product!")
     console.log("The form has been submitted");
     console.log('spaceship or robot = ' + this.addProductForm.value.BasicInfo.spaceshipOrRobot);
     console.log(this.addProductForm);
