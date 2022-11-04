@@ -50,7 +50,7 @@
               </div>
 
               <div class="form-group col-12">
-                <button type="submit" class="btn btn-primary me-2 mt-2" (click)="selectTab(1)" [disabled]="!BasicInfo.valid">Next</button>
+                <button type="button" class="btn btn-primary me-2 mt-2" (click)="selectTab(1)" [disabled]="!BasicInfo.valid">Next</button>
                 <!-- me-2 at the end is for margin-end by 2, see https://getbootstrap.com/docs/5.0/utilities/spacing/ -->
                 <!-- <button type="submit" class="btn btn-primary me-2 mt-2">Save</button>
                 <button type="reset" class="btn btn-primary mt-2">reset</button> -->
@@ -66,8 +66,8 @@
                 </div>
               </div>
               <div class="form-group col-12">
-                <button type="submit" class="btn btn-primary me-2 mt-2" (click)="selectTab(0)">Previous</button>
-                <button type="submit" class="btn btn-primary mt-2" (click)="selectTab(2)">Next</button>
+                <button type="button" class="btn btn-primary me-2 mt-2" (click)="selectTab(0)">Previous</button>
+                <button type="button" class="btn btn-primary mt-2" (click)="selectTab(2)">Next</button>
               </div>
             </tab>
 
@@ -81,7 +81,7 @@
                 <label>Product Description</label>
                 <input type="text" class="form-control mt-2" ngModel name="Description">
               </div>
-              <button type="submit" class="btn btn-primary me-2 mt-2" (click)="selectTab(1)">Previous</button>
+              <button type="button" class="btn btn-primary me-2 mt-2" (click)="selectTab(1)">Previous</button>
               <button type="submit" class="btn btn-primary me-2 mt-2">Save Product</button>
                 <button type="reset" class="btn btn-primary mt-2">reset</button>
             </tab>
