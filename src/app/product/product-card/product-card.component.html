@@ -3,14 +3,6 @@
   <div class="img-wrapper">
     <img *ngIf="product?.Image" class="card-img-top" src="assets/images/{{product?.Image}}.PNG">
     <img *ngIf="!product?.Image" class="card-img-top" src="assets/images/default.PNG">
-    <ul class="list-inline text-center">
-      <li class="list-inline-item">
-        <button class="btn btn-primary" routerLink="/product-detail/{{product?.Id}}"><i class="fa-solid fa-pen-to-square"></i></button>
-      </li>
-      <li class="list-inline-item">
-        <button class="btn btn-primary"><i class="fa-solid fa-address-book"></i></button>
-      </li>
-    </ul>
   </div>
 
   <div class="card-body p-2 text-center">
@@ -18,5 +10,17 @@
     <!-- <h2>{{product?.Type}}</h2> -->
     <h2>{{product?.Price}} Credits</h2>
   </div>
+
+  <ul class="list-inline text-center">
+    <li class="list-inline-item">
+      <button class="btn btn-primary" routerLink="/product-detail/{{product?.Id}}">Product Details</button>
+    </li>
+    <!--
+    <li class="list-inline-item">
+      <button class="btn btn-primary"><i class="fa-solid fa-address-book"></i></button>
+    </li>
+    -->
+  </ul>
+
 </div>
 

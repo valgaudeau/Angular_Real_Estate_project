@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
     // error allows us to define what to do if the observable emits an error.
     let productsFromLocalStorage: Array<IProduct> =[];
     productsFromLocalStorage = JSON.parse(localStorage.getItem('productId') || '{}');
-    console.log(productsFromLocalStorage);
+    // console.log(productsFromLocalStorage);
 
     // Using the spread operator - See https://howtodoinjava.com/typescript/spread-operator/
     if(productsFromLocalStorage) {

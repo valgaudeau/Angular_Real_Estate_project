@@ -20,7 +20,8 @@ constructor(private http:HttpClient) { }
 getAllProducts() : Observable<IProduct[]>
 {
   return this.http.get<IProduct[]>(this.propertyUrl).pipe(
-    tap(data => console.log('All', JSON.stringify(data))),
+    // if need to console log all of the data again, use tap(data => console.log('All', JSON.stringify(data))),
+    tap(),
     catchError(this.handleError)
   );
 }

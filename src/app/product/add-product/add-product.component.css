@@ -28,3 +28,11 @@
   text-align: center;
   font-weight: bold;
 }
+
+#spaceshipOrRobotButton1 {
+  border-radius: 4px;
+}
+
+#spaceshipOrRobotButton2 {
+  border-radius: 4px;
+}
