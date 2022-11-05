@@ -32,6 +32,7 @@ export class ProductListComponent implements OnInit {
     productsFromLocalStorage = JSON.parse(localStorage.getItem('productId') || '{}');
     console.log(productsFromLocalStorage);
 
+    // Using the spread operator - See https://howtodoinjava.com/typescript/spread-operator/
     if(productsFromLocalStorage) {
       for(const id in productsFromLocalStorage) {
         if(productsFromLocalStorage[id].SpaceshipOrRobot == 1) {
