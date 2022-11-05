@@ -28,14 +28,25 @@ export class ProductListComponent implements OnInit {
     // from an observer. Those 3 notifications are next, error, and complete.
     // next allows us to specify what we want to do when the observable emits the next value. Since this is an HTTP request, it only emits one time.
     // error allows us to define what to do if the observable emits an error.
-    const newProduct = JSON.parse(localStorage.getItem('newProduct') || '{}');
-    console.log(newProduct);
+    let productsFromLocalStorage: Array<IProduct> =[];
+    productsFromLocalStorage = JSON.parse(localStorage.getItem('productId') || '{}');
+    console.log(productsFromLocalStorage);
 
-    if(newProduct['SpaceshipOrRobot'] == 1){
-      this.spaceshipsFromLocalStorage = [newProduct, ...this.spaceshipsFromLocalStorage];
-    } else if (newProduct['SpaceshipOrRobot'] == 2) {
-      this.robotsFromLocalStorage = [newProduct, ...this.robotsFromLocalStorage];
+    if(productsFromLocalStorage) {
+      for(const id in productsFromLocalStorage) {
+        if(productsFromLocalStorage[id].SpaceshipOrRobot == 1) {
+          this.spaceshipsFromLocalStorage = [productsFromLocalStorage[id], ...this.spaceshipsFromLocalStorage];
+        } else if(productsFromLocalStorage[id].SpaceshipOrRobot == 2) {
+          this.robotsFromLocalStorage = [productsFromLocalStorage[id], ...this.robotsFromLocalStorage];
+        }
+      }
     }
+
+    // if(productsFromLocalStorage['SpaceshipOrRobot'] == 1){
+    //   this.spaceshipsFromLocalStorage = [productsFromLocalStorage, ...this.spaceshipsFromLocalStorage];
+    // } else if (productsFromLocalStorage['SpaceshipOrRobot'] == 2) {
+    //   this.robotsFromLocalStorage = [productsFromLocalStorage, ...this.robotsFromLocalStorage];
+    // }
 
     this.productService.getAllProducts().subscribe({
       next: products => this.allProducts = products,

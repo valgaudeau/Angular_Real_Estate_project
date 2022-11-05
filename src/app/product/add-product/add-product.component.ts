@@ -21,7 +21,7 @@ export class AddProductComponent implements OnInit {
 
   // Think I need to convert my interface to a class to create the object I need here - See https://stackoverflow.com/questions/52616172/how-to-initialize-an-object-in-typescript
   productToAdd: IProduct = {
-    Id: -1,
+    Id: -1, // This will be generated at the database level eventually, just a dummy for now
     Name: 'default name',
     SpaceshipOrRobot: -1,
     Price: -1,
@@ -82,6 +82,7 @@ export class AddProductComponent implements OnInit {
 
     // this function maps the data we are receiving through our form to the productToAdd product
     mapFormDataToPropertyProduct(): void {
+      this.productToAdd.Id = this.productService.newProductId();
       this.productToAdd.Name = this.addProductForm.value.BasicInfo.Name;
       this.productToAdd.SpaceshipOrRobot = this.addProductForm.value.BasicInfo.spaceshipOrRobot;
       this.productToAdd.Price = this.addProductForm.value.BasicInfo.Price;
