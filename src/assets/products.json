@@ -5,7 +5,9 @@
     "Name":"X-WING",
     "Type":"Spaceship",
     "Price":14000,
-    "Image":"x-wing"
+    "Image":"x-wing",
+    "Age":"5",
+    "Description":"The X-wing is a versatile Rebel Alliance starfighter that balances speed with firepower. Armed with four laser cannons and two proton torpedo launchers, the X-wing can take on anything the Empire throws at it. Nimble engines give the X-wing an edge during dogfights, and it can make long-range jumps with its hyperdrive and its astromech droid co-pilot."
   },
   {
     "Id":2,

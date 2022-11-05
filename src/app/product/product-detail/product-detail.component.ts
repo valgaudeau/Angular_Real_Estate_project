@@ -28,6 +28,17 @@ export class ProductDetailComponent implements OnInit {
     this.route.params.subscribe(
       (params) => {
         this.productId = Number(params['id']);
+        this.productService.getProductById(this.productId).subscribe(
+          data => {
+            this.productToDisplay.Name = data?.Name!;
+            this.productToDisplay.SpaceshipOrRobot = data?.SpaceshipOrRobot!;
+            this.productToDisplay.Image = data?.Image!;
+            this.productToDisplay.Price = data?.Price!;
+            this.productToDisplay.Age = data?.Age!;
+            this.productToDisplay.Description = data?.Description!;
+            console.log(this.productToDisplay);
+          }
+        )
       }
     )
   }
@@ -36,8 +47,7 @@ export class ProductDetailComponent implements OnInit {
     if(this.productId) // Had to add this if otherwise it says possibly undefined. Not very elegant, must be a better way of handling this.
     {
       this.productId += 1;
-      this.router.navigate(['property-detail/' + this.productId]);
-      // this.productService.getProductById(this.productId)
+      this.router.navigate(['product-detail/' + this.productId]);
     }
 
   }

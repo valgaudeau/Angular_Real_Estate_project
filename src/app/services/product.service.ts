@@ -28,19 +28,19 @@ getAllProducts() : Observable<IProduct[]>
 // This function finds a single product by its id. We first check if the product is in the array of products saved in local storage, and if its not there, we then go and find it from the JSON file
 getProductById(idToFind: number) {
   // First, check if the product id can be found in the product array saved in local storage (if there are any)
-  let arrayOfProductsFromLocalStorage: Array<IProduct> = [];
-  if(localStorage.getItem('productId')) {
-    arrayOfProductsFromLocalStorage = JSON.parse(localStorage.getItem('productId') || '{}');
-  }
+  // let arrayOfProductsFromLocalStorage: Array<IProduct> = [];
+  // if(localStorage.getItem('productId')) {
+  //   arrayOfProductsFromLocalStorage = JSON.parse(localStorage.getItem('productId') || '{}');
+  // }
 
-  if(arrayOfProductsFromLocalStorage) {
-    for(const id in arrayOfProductsFromLocalStorage) {
-      var currentId = arrayOfProductsFromLocalStorage[id].Id;
-      if(currentId == idToFind) {
-        return arrayOfProductsFromLocalStorage.find(p => p.Id == idToFind);
-      }
-    }
-  }
+  // if(arrayOfProductsFromLocalStorage) {
+  //   for(const id in arrayOfProductsFromLocalStorage) {
+  //     var currentId = arrayOfProductsFromLocalStorage[id].Id;
+  //     if(currentId == idToFind) {
+  //       return arrayOfProductsFromLocalStorage.find(p => p.Id == idToFind);
+  //     }
+  //   }
+  // }
 
   // If the product id wasn't found in the array saved in local storage, then we can find it in the JSON file
   // Use rxjs library to filter. Here I have a problem tho: If the product is found in the local storage, I'm returning a single product (I think?). If its in the JSON file, I'm returning an obserable.
@@ -93,14 +93,6 @@ newProductId():number {
   } else {
     return -1;
   }
-  // const existingProduct = JSON.parse(localStorage.getItem('productId') || '{}');
-  // if (localStorage.getItem('productId') != null){
-  //   localStorage.setItem('productId', String(+localStorage.getItem('productId') + 1));
-  //   return +localStorage.getItem('productId'); // + in front converts it to a number
-  // } else {
-  //   localStorage.setItem('productId', '-1');
-  //   return -1;
-  // }
 }
 
 }
