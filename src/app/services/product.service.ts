@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IProduct } from '../product/IProduct.interface';
-import { Observable, catchError, tap, throwError } from 'rxjs';
+import { Observable, catchError, tap, throwError, map } from 'rxjs';
 import { NgIf } from '@angular/common';
 
 @Injectable({
@@ -25,11 +25,32 @@ getAllProducts() : Observable<IProduct[]>
   );
 }
 
-/*
-getAllProperties(){
-  return this.http.get('./assets/properties.json')
+// This function finds a single product by its id. We first check if the product is in the array of products saved in local storage, and if its not there, we then go and find it from the JSON file
+getProductById(idToFind: number) {
+  // First, check if the product id can be found in the product array saved in local storage (if there are any)
+  let arrayOfProductsFromLocalStorage: Array<IProduct> = [];
+  if(localStorage.getItem('productId')) {
+    arrayOfProductsFromLocalStorage = JSON.parse(localStorage.getItem('productId') || '{}');
+  }
+
+  if(arrayOfProductsFromLocalStorage) {
+    for(const id in arrayOfProductsFromLocalStorage) {
+      var currentId = arrayOfProductsFromLocalStorage[id].Id;
+      if(currentId == idToFind) {
+        return arrayOfProductsFromLocalStorage.find(p => p.Id == idToFind);
+      }
+    }
+  }
+
+  // If the product id wasn't found in the array saved in local storage, then we can find it in the JSON file
+  // Use rxjs library to filter. Here I have a problem tho: If the product is found in the local storage, I'm returning a single product (I think?). If its in the JSON file, I'm returning an obserable.
+  // I'm not sure though, need to experiment.
+  return this.getAllProducts().pipe(
+    map(productArray => {
+      return productArray.find(p => p.Id == idToFind);
+    })
+  );
 }
-*/
 
 private handleError(err: HttpErrorResponse){
   let errorMessage = '';
