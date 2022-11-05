@@ -32,9 +32,9 @@ export class ProductListComponent implements OnInit {
     console.log(newProduct);
 
     if(newProduct['SpaceshipOrRobot'] == 1){
-      this.spaceshipsFromLocalStorage[0] = newProduct;
-    } else {
-      this.robotsFromLocalStorage[0] = newProduct;
+      this.spaceshipsFromLocalStorage = [newProduct, ...this.spaceshipsFromLocalStorage];
+    } else if (newProduct['SpaceshipOrRobot'] == 2) {
+      this.robotsFromLocalStorage = [newProduct, ...this.robotsFromLocalStorage];
     }
 
     this.productService.getAllProducts().subscribe({

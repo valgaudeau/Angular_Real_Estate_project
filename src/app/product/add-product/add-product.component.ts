@@ -39,7 +39,7 @@ export class AddProductComponent implements OnInit {
     // }, 100)
   }
 
-  // Using these getters, we can retrieve information about the status FormGroup controls in the HTML
+  // Getters to retrieve information about the status FormGroup controls in the HTML
   get basicInfoModelGroup() {
     return this.addProductForm.controls['BasicInfo'] as FormGroup;
   }
