@@ -6,7 +6,7 @@
     "Type":"Spaceship",
     "Price":14000,
     "Image":"x-wing",
-    "Age":"5",
+    "Age":5,
     "Description":"The X-wing is a versatile Rebel Alliance starfighter that balances speed with firepower. Armed with four laser cannons and two proton torpedo launchers, the X-wing can take on anything the Empire throws at it. Nimble engines give the X-wing an edge during dogfights, and it can make long-range jumps with its hyperdrive and its astromech droid co-pilot."
   },
   {
@@ -15,7 +15,9 @@
     "Name":"MILLENIUM",
     "Type":"Spaceship",
     "Price":53000,
-    "Image":"millenium-falcon"
+    "Image":"millenium-falcon",
+    "Age":20,
+    "Description":"An extensively modified Corellian light freighter, the Millennium Falcon is a legend in smuggler circles and is coveted by many for being the fastest hunk of junk in the galaxy. Despite her humble origins and shabby exterior, the ship that made the Kessel Run in less than 12 parsecs has played a role in some of the greatest victories of the Rebel Alliance and the New Republic."
   },
   {
     "Id":3,
@@ -23,7 +25,9 @@
     "Name":"IMPERIAL FIGHTER",
     "Type":"Spaceship",
     "Price":15500,
-    "Image":"imperial-fighter"
+    "Image":"imperial-fighter",
+    "Age":23,
+    "Description":"The imperial fighter was the unforgettable symbol of the Imperial fleet. Carried aboard Star Destroyers and battle stations, imperial fighters were single-pilot vehicles designed for fast-paced dogfights with Rebel X-wings and other starfighters. The iconic imperial fighter led to other models in the imperial family including the dagger-shaped TIE Interceptor and the explosive-laden imperial bomber. The terrifying roar of a imperial's engines would strike fear into the hearts of all enemies of the Empire."
   },
   {
     "Id":4,
@@ -31,7 +35,9 @@
     "Name":"GLADOS",
     "Type":"Robot",
     "Price":16000,
-    "Image":"glados"
+    "Image":"glados",
+    "Age":8,
+    "Description":"GLaDOS (Genetic Lifeform and Disk Operating System) is a fictional artificially superintelligent computer system from the video game series Portal. GLaDOS later appeared in The Lab and Lego Dimensions. The character was created by Erik Wolpaw and Kim Swift and voiced by Ellen McLain. GLaDOS is responsible for testing and maintenance in the Aperture Science Computer-Aided Enrichment Center in all titles. While GLaDOS initially appears in the first game to simply be a voice that guides the player, her words and actions become increasingly malicious as she makes her intentions clear. "
   },
   {
     "Id":5,
@@ -39,7 +45,9 @@
     "Name":"R2D2",
     "Type":"Robot",
     "Price":24000,
-    "Image":"r2d2"
+    "Image":"r2d2",
+    "Age":100,
+    "Description":"A reliable and versatile astromech droid, R2-D2 has served Padmé Amidala, Anakin Skywalker, and Luke Skywalker in turn, showing great bravery in rescuing his masters and their friends from many perils. A skilled starship mechanic and fighter pilot's assistant, he has an unlikely but enduring friendship with the fussy protocol droid C-3PO."
   },
   {
     "Id":6,
@@ -47,7 +55,9 @@
     "Name":"RAVEN SPACESHIP",
     "Type":"Spaceship",
     "Price":24000,
-    "Image":"raven-spaceship"
+    "Image":"raven-spaceship",
+    "Age":2,
+    "Description":"The Raven is the modern-day descendent of the Roberts Space Industries X-7 spacecraft which tested the very first jump engines. Utilitarian to a T, the Raven is the perfect choice for new ship owners: Versatile enough to tackle a myriad of challenges, yet with a straightforward and intuitive design. Build for the discerning pilot who never forgets where he or she came from."
   },
   {
     "Id":7,
@@ -55,7 +65,9 @@
     "Name":"THE ENTERPRISE",
     "Type":"Spaceship",
     "Price":150000,
-    "Image":"the-enterprise"
+    "Image":"the-enterprise",
+    "Age": 20,
+    "Description":"Enterprise or USS Enterprise is the name of several fictional spacecraft, some of which are the main craft and setting for various television series and films in the Star Trek science fiction franchise. The most notable were Captain James T. Kirk's USS Enterprise from the original 1960s television series, and Captain Jean-Luc Picard's USS Enterprise from Star Trek: The Next Generation."
   },
   {
     "Id":8,
@@ -63,7 +75,9 @@
     "Name":"IRON GIANT",
     "Type":"Robot",
     "Price":200000,
-    "Image":"iron-giant"
+    "Image":"iron-giant",
+    "Age":7,
+    "Description":"The Iron Giant is a 50-foot tall autonomous Metal Man from another world that crash lands on Earth before becoming friends with a young boy named Hogarth who rescues him from his own internal defensive mechanism in the Warner Bros. 1999 animated science fiction film of the same name, voiced by Vin Diesel. The Iron Giant is loosely based on the title character of The Iron Man, a 1968 novel by Ted Hughes. "
   },
   {
     "Id":9,
@@ -71,6 +85,8 @@
     "Name":"TERMINATOR",
     "Type":"Robot",
     "Price":67500,
-    "Image":"terminator"
+    "Image":"terminator",
+    "Age":15,
+    "Description":"Cyborg assassin and soldier, designed for infiltration and combat duty, used by the military supercomputer Skynet toward the ultimate goal of exterminating the Human Resistance. The terminators were created by Cyberdyne Systems. Terminators can withstand standard 20th century firearms, crash through wall intact, and survive explosions to some degree. Repeated shotgun blasts have enough force to knock it down and temprarily disable it, while heavy amounts of automatic fire are able to compromise the organise disguise layer."
   }
 ]
