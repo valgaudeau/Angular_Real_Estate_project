@@ -9,7 +9,7 @@ import { IProduct } from '../IProduct.interface';
   styleUrls: ['./product-detail.component.css']
 })
 export class ProductDetailComponent implements OnInit {
-  public propertyId: number | undefined;
+  public productId: number | undefined;
   // Same thing as in addProductComponent, don't like how this is done, refactor later if I find a better solution
   productToDisplay: IProduct = {
     Id: -1,
@@ -23,20 +23,20 @@ export class ProductDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) { }
 
   ngOnInit() {
-    this.propertyId = Number(this.route.snapshot.params['id']);
+    this.productId = Number(this.route.snapshot.params['id']);
 
     this.route.params.subscribe(
       (params) => {
-        this.propertyId = Number(params['id']);
+        this.productId = Number(params['id']);
       }
     )
   }
 
   onSelectNext(){
-    if(this.propertyId) // Had to add this if otherwise it says possibly undefined. Not very elegant, must be a better way of handling this.
+    if(this.productId) // Had to add this if otherwise it says possibly undefined. Not very elegant, must be a better way of handling this.
     {
-      this.propertyId += 1;
-      this.router.navigate(['property-detail/' + this.propertyId]);
+      this.productId += 1;
+      this.router.navigate(['property-detail/' + this.productId]);
       // this.productService.getProductById(this.productId)
     }
 
