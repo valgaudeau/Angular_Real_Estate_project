@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import * as alertify from 'alertifyjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-userRegister',
@@ -14,7 +15,7 @@ export class UserRegisterComponent implements OnInit {
   submitted = false;
   user : any = { };
 
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
@@ -53,6 +54,9 @@ export class UserRegisterComponent implements OnInit {
     alertify.success("You have successfully registered!");
     this.registrationForm.reset(); // reset form when its submitted
     this.submitted = false; // if we go into this block of code, the form submission was successful, and we can now set this boolean to false again
+    // After successful registration, the user should be automatically logged in. Need to retrieve array of registered user credentials, and create a new item in local storage with key 'token' for the username that was just registered.
+    localStorage.setItem('token', JSON.stringify(this.userName));
+    this.router.navigate(['/']);
   }
 
 }
