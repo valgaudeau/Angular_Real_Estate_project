@@ -6,6 +6,10 @@
   color: red;
 }
 
+.row {
+  margin-bottom: 60%;
+}
+
 .tab-panel {
   padding: 10px;
   /* border: 1px solid grey;
