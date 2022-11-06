@@ -24,7 +24,6 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     // this.productId = Number(this.route.snapshot.params['id']);
-
     this.route.params.subscribe(
       (params) => {
         this.productId = Number(params['id']);
@@ -37,7 +36,7 @@ export class ProductDetailComponent implements OnInit {
             this.productToDisplay.Age = data?.Age!;
             this.productToDisplay.Description = data?.Description!;
             console.log(this.productToDisplay);
-          }
+          }, error => this.router.navigate(['/'])
         )
       }
     )

@@ -55,6 +55,7 @@ getProductById(idToFind: number) {
   // YES this turned out to be an issue. Instead, going to moldify the getAllproducts() function. The function should now fetch the products from the local storage & JSON file, and we can filter it here.
   return this.getAllProducts().pipe(
     map(productArray => {
+      // throw new Error('test error');
       return productArray.find(p => p.Id == idToFind);
     })
   );
