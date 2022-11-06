@@ -36,7 +36,7 @@ export class ProductDetailComponent implements OnInit {
             this.productToDisplay.Age = data?.Age!;
             this.productToDisplay.Description = data?.Description!;
             console.log(this.productToDisplay);
-          }, error => this.router.navigate(['/'])
+          }, error => this.router.navigate(['/']) // If the data from the API throws an error, stay on home page. Need to use Route Resolver for this, but haven't managed to make it work yet
         )
       }
     )
