@@ -21,7 +21,7 @@ export class AddProductComponent implements OnInit {
 
   // Think I need to convert my interface to a class to create the object I need here - See https://stackoverflow.com/questions/52616172/how-to-initialize-an-object-in-typescript
   productToAdd: IProduct = {
-    Id: -1, // This will be generated at the database level eventually, just a dummy for now
+    Id: 10, // This will be generated at the database level eventually, just a dummy for now. Setting it to 10 because we have 9 items in the JSON file, so first product we add to local storage should have id of 10
     Name: 'default name',
     SpaceshipOrRobot: -1,
     Price: -1,
@@ -68,8 +68,9 @@ export class AddProductComponent implements OnInit {
     alertify.set("notifier", "position", "top-center");
     alertify.success("You have successfully added a new product!")
     // console.log('spaceship or robot = ' + this.addProductForm.value.BasicInfo.spaceshipOrRobot);
-    console.log(this.addProductForm);
+    // console.log(this.addProductForm);
     this.mapFormDataToPropertyProduct();
+    console.log(this.productToAdd);
     this.productService.addProduct(this.productToAdd);
 
     // The following code redirects the user to the robot page if they added a robot product, or main page if they added a spaceship
@@ -83,6 +84,12 @@ export class AddProductComponent implements OnInit {
     // this function maps the data we are receiving through our form to the productToAdd product
     mapFormDataToPropertyProduct(): void {
       this.productToAdd.Id = this.productService.newProductId();
+      // console.log("at this point, product id is " + this.productToAdd.Id);
+      // I was forced to add this check here to fix the issue of the first created product being given NaN id. Couldn't figure out why the function isn't working, very weird.
+      if(Number.isNaN(this.productToAdd.Id)) {
+        this.productToAdd.Id = 10;
+      }
+      // console.log("at this next point, product id is " + this.productToAdd.Id);
       this.productToAdd.Name = this.addProductForm.value.BasicInfo.Name;
       this.productToAdd.SpaceshipOrRobot = this.addProductForm.value.BasicInfo.spaceshipOrRobot;
       this.productToAdd.Price = this.addProductForm.value.BasicInfo.Price;

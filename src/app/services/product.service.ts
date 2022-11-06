@@ -80,19 +80,21 @@ addProduct(product: IProduct){
     productList = [product]
   }
   localStorage.setItem('productId', JSON.stringify(productList));
-  // localStorage.setItem('newProduct', JSON.stringify(product));
 }
 
 // This will be called when a new product is mapped to the values inputted in the addProduct form, and we need to set a new id for the product being saved to local storage
-// Logic: Retrieve array of products in local storage. If length == 0, then we can return -1 as the default id for the first product being added. If != 0, return the length of array + 1.
+// Logic: Retrieve array of products in local storage. If length == 0, then we can return 10 as the default id for the first product being added. This is because we have 9 objects in the JSON file.
+// If != 0, return the length of array + 10.
 newProductId():number {
+  // Simply don't understand whats going on here. Why is the first item added given an id of null? If I just change the function to return 10, it works. Makes no sense.
+  // I fixed it downstream in add product by adding a NaN check, but I don't understand what the issue is and why this returns NaN for the first product that gets created.
   let productsFromLocalStorage: Array<IProduct> =[];
   productsFromLocalStorage = JSON.parse(localStorage.getItem('productId') || '{}');
   var numberOfProductsInLocalStorage = productsFromLocalStorage.length;
-  if(numberOfProductsInLocalStorage != 0) {
-    return numberOfProductsInLocalStorage + 1;
+  if(productsFromLocalStorage) {
+    return numberOfProductsInLocalStorage + 10;
   } else {
-    return -1;
+    return 10;
   }
 }
 
