@@ -1,3 +1,7 @@
+footer {
+  background-color: black;
+}
+
 .nav-link{
   cursor: pointer;
 }

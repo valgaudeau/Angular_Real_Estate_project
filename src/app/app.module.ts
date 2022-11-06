@@ -18,6 +18,7 @@ import { UserRegisterComponent } from './user/user-register/userRegister.compone
 import { UserLoginComponent } from './user/user-login/userLogin.component';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   {path: '', component: ProductListComponent},
@@ -34,11 +35,12 @@ const appRoutes: Routes = [
     AppComponent,
     ProductCardComponent,
     ProductListComponent,
-      NavBarComponent,
-      AddProductComponent,
-      ProductDetailComponent,
-      UserRegisterComponent,
-      UserLoginComponent
+    NavBarComponent,
+    AddProductComponent,
+    ProductDetailComponent,
+    UserRegisterComponent,
+    UserLoginComponent,
+    FooterComponent
    ],
   imports: [
     BrowserModule,
