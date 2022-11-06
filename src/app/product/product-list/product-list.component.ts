@@ -24,21 +24,6 @@ export class ProductListComponent implements OnInit {
     {
       this.spaceshipOrRobot = 2; // we are on rent-property URL
     }
-
-    let productsFromLocalStorage: Array<IProduct> =[];
-    productsFromLocalStorage = JSON.parse(localStorage.getItem('productId') || '{}');
-    // console.log(productsFromLocalStorage);
-    // Using the spread operator - See https://howtodoinjava.com/typescript/spread-operator/
-    if(productsFromLocalStorage) {
-      for(const id in productsFromLocalStorage) {
-        if(productsFromLocalStorage[id].SpaceshipOrRobot == 1) {
-          this.spaceshipsFromLocalStorage = [productsFromLocalStorage[id], ...this.spaceshipsFromLocalStorage];
-        } else if(productsFromLocalStorage[id].SpaceshipOrRobot == 2) {
-          this.robotsFromLocalStorage = [productsFromLocalStorage[id], ...this.robotsFromLocalStorage];
-        }
-      }
-    }
-
     // We call the subscribe method passing in an observer object. The observer object provides functions to react to the different types of notifications we can receive from an observer. Those 3 notifications are next, error, and complete.
     // next allows us to specify what we want to do when the observable emits the next value. Since this is an HTTP request, it only emits one time.
     // error allows us to define what to do if the observable emits an error.

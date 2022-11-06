@@ -20,32 +20,39 @@ constructor(private http:HttpClient) { }
 getAllProducts() : Observable<IProduct[]>
 {
   return this.http.get<IProduct[]>(this.propertyUrl).pipe(
-    // if need to console log all of the data again, use tap(data => console.log('All', JSON.stringify(data))),
-    tap(),
-    catchError(this.handleError)
+    map(data => {
+      // Need to have the array of products from local storage and from the JSON file
+      const productsFromJsonFile: Array<IProduct> = [];
+      const productsFromLocalStorage: Array<IProduct> = JSON.parse(localStorage.getItem('productId') || '{}');
+
+      if(productsFromLocalStorage) {
+        for(const id in productsFromLocalStorage) {
+          if(data.hasOwnProperty(id)) {
+            productsFromJsonFile.push(productsFromLocalStorage[id]);
+          }
+        }
+      }
+
+      for(const id in data) {
+        if(data.hasOwnProperty(id)) {
+          productsFromJsonFile.push(data[id]);
+        }
+      }
+      return productsFromJsonFile;
+    })
   );
+
+  // return this.http.get<IProduct[]>(this.propertyUrl).pipe(
+  //   // if need to console log all of the data again, use tap(data => console.log('All', JSON.stringify(data))),
+  //   tap(),
+  //   catchError(this.handleError)
 }
 
 // This function finds a single product by its id. We first check if the product is in the array of products saved in local storage, and if its not there, we then go and find it from the JSON file
 getProductById(idToFind: number) {
-  // First, check if the product id can be found in the product array saved in local storage (if there are any)
-  // let arrayOfProductsFromLocalStorage: Array<IProduct> = [];
-  // if(localStorage.getItem('productId')) {
-  //   arrayOfProductsFromLocalStorage = JSON.parse(localStorage.getItem('productId') || '{}');
-  // }
-
-  // if(arrayOfProductsFromLocalStorage) {
-  //   for(const id in arrayOfProductsFromLocalStorage) {
-  //     var currentId = arrayOfProductsFromLocalStorage[id].Id;
-  //     if(currentId == idToFind) {
-  //       return arrayOfProductsFromLocalStorage.find(p => p.Id == idToFind);
-  //     }
-  //   }
-  // }
-
   // If the product id wasn't found in the array saved in local storage, then we can find it in the JSON file
   // Use rxjs library to filter. Here I have a problem tho: If the product is found in the local storage, I'm returning a single product (I think?). If its in the JSON file, I'm returning an obserable.
-  // I'm not sure though, need to experiment.
+  // YES this turned out to be an issue. Instead, going to moldify the getAllproducts() function. The function should now fetch the products from the local storage & JSON file, and we can filter it here.
   return this.getAllProducts().pipe(
     map(productArray => {
       return productArray.find(p => p.Id == idToFind);
@@ -75,6 +82,7 @@ addProduct(product: IProduct){
   let productList: Array<IProduct> = [];
   if(localStorage.getItem('productId')) {
     productList = JSON.parse(localStorage.getItem('productId') || '{}');
+    // Using the spread operator - See https://howtodoinjava.com/typescript/spread-operator/
     productList = [product, ...productList];
   } else {
     productList = [product]
