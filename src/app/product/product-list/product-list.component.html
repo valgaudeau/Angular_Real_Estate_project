@@ -1,26 +1,9 @@
+
 <div class="row">
   <app-product-list-search (searchTextChanged)="onSearchTextEntered($event)"></app-product-list-search>
-  <ng-template [ngIf]="spaceshipOrRobot == 0">
-    <div *ngFor="let product of allProducts" class="shadow-lg col-sm-4 p-4">
-      <div class="product-container" *ngIf="searchText === '' || product.Name.toLowerCase().includes(searchText)">
-        <app-product-card [product]="product"></app-product-card>
-      </div>
+  <div *ngFor="let product of allProducts" class="shadow-lg col-sm-4 p-4">
+    <div class="product-container" *ngIf="searchText === '' || product.Name.toLowerCase().includes(searchText)">
+      <app-product-card [product]="product"></app-product-card>
     </div>
-  </ng-template>
-
-  <ng-template [ngIf]="spaceshipOrRobot == 1">
-    <div *ngFor="let spaceship of allSpaceships" class="shadow-lg col-sm-4 p-4">
-      <app-product-card [product]="spaceship"></app-product-card>
-    </div>
-  </ng-template>
-
-  <ng-template [ngIf]="spaceshipOrRobot == 2">
-    <div *ngFor="let robot of allRobots" class="shadow-lg col-sm-4 p-4">
-      <app-product-card [product]="robot"></app-product-card>
-    </div>
-  </ng-template>
-
-  <!-- <div *ngFor="let property of allProperties" class="shadow-lg col-sm-4 p-3">
-    <app-product-card [property]="property"></app-product-card>
-  </div> -->
+  </div>
 </div>
