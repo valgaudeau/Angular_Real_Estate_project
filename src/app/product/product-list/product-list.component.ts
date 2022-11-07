@@ -17,7 +17,7 @@ export class ProductListComponent implements OnInit {
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.url.toString()); // route.snapshot.url gives us the current path of the route
+    // console.log(this.route.snapshot.url.toString()); // route.snapshot.url gives us the current path of the route
     // We call the subscribe method passing in an observer object. The observer object provides functions to react to the different types of notifications we can receive from an observer. Those 3 notifications are next, error, and complete.
     // next allows us to specify what we want to do when the observable emits the next value. Since this is an HTTP request, it only emits one time.
     // error allows us to define what to do if the observable emits an error.
@@ -49,7 +49,7 @@ export class ProductListComponent implements OnInit {
   // This function will be called when the custom event is raised. The event will emit some data, and we want to receive it here and set the property searchText.
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue.toLowerCase();
-    console.log(this.searchText);
+    // console.log(this.searchText);
   }
 
 }
