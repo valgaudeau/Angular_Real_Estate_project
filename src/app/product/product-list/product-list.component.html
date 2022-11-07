@@ -1,5 +1,11 @@
 <div class="row">
 
+  <ng-template [ngIf]="spaceshipOrRobot == 0">
+    <div *ngFor="let product of allProducts" class="shadow-lg col-sm-4 p-4">
+      <app-product-card [product]="product"></app-product-card>
+    </div>
+  </ng-template>
+
   <ng-template [ngIf]="spaceshipOrRobot == 1">
     <div *ngFor="let spaceship of allSpaceships" class="shadow-lg col-sm-4 p-4">
       <app-product-card [product]="spaceship"></app-product-card>

@@ -9,7 +9,7 @@ import { IProduct } from '../IProduct.interface';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  spaceshipOrRobot = 1; // by default, we will will show spaceships. If value = 2, we show robots
+  spaceshipOrRobot = 0; // by default, we show ALL of the products. If value = 1, we show spaceships. If value = 2, we show robots
   allProducts: IProduct[] = [];
   allSpaceships: IProduct[] = [];
   allRobots: IProduct[] = [];
@@ -18,8 +18,15 @@ export class ProductListComponent implements OnInit {
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit(): void {
-    if(this.route.snapshot.url.toString()) // this gives us the current path of the route. We need this to identify is we are on the rent-property path to display the appropriate properties.
+    if(this.route.snapshot.url.toString() == 'spaceships') // this gives us the current path of the route. We need this to identify is we are on the robot path to display the appropriate properties.
     {
+      // console.log("yes this is the route.snapshot.url value for spaceship page " + this.route.snapshot.url.toString());
+      this.spaceshipOrRobot = 1; // we are on rent-property URL
+    }
+
+    if(this.route.snapshot.url.toString() == 'robots') // this gives us the current path of the route. We need this to identify is we are on the robot path to display the appropriate properties.
+    {
+      // console.log("yes this is the route.snapshot.url value for robot page " + this.route.snapshot.url.toString());
       this.spaceshipOrRobot = 2; // we are on rent-property URL
     }
     // We call the subscribe method passing in an observer object. The observer object provides functions to react to the different types of notifications we can receive from an observer. Those 3 notifications are next, error, and complete.

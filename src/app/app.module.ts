@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   {path: '', component: ProductListComponent},
+  {path: 'all-products', component: ProductListComponent},
   {path: 'robots', component: ProductListComponent},
   {path: 'add-product', component: AddProductComponent},
   {path: 'product-detail/:id', component: ProductDetailComponent},
