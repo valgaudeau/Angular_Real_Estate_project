@@ -52,7 +52,7 @@ export class ProductListComponent implements OnInit {
 
   // This function will be called when the custom event is raised. The event will emit some data, and we want to receive it here and set the property searchText.
   onSearchTextEntered(searchValue: string) {
-    this.searchText = searchValue;
+    this.searchText = searchValue.toLowerCase();
     console.log(this.searchText);
   }
 
