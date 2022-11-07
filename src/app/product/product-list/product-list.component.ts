@@ -14,6 +14,7 @@ export class ProductListComponent implements OnInit {
   allSpaceships: IProduct[] = [];
   allRobots: IProduct[] = [];
   errorMessage: string = '';
+  searchText: string = ''; // when the searchTextChanged event is raised, we set the value of this property
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
@@ -47,6 +48,12 @@ export class ProductListComponent implements OnInit {
       error: err => this.errorMessage = err
     })
 
+  }
+
+  // This function will be called when the custom event is raised. The event will emit some data, and we want to receive it here and set the property searchText.
+  onSearchTextEntered(searchValue: string) {
+    this.searchText = searchValue;
+    console.log(this.searchText);
   }
 
 }

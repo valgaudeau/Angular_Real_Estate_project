@@ -19,6 +19,8 @@ import { UserLoginComponent } from './user/user-login/userLogin.component';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { FooterComponent } from './footer/footer.component';
+import { ProductListSearchComponent } from './product-list-search/product-list-search.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const appRoutes: Routes = [
   {path: '', component: ProductListComponent},
@@ -41,7 +43,8 @@ const appRoutes: Routes = [
     ProductDetailComponent,
     UserRegisterComponent,
     UserLoginComponent,
-    FooterComponent
+    FooterComponent,
+   ProductListSearchComponent
    ],
   imports: [
     BrowserModule,

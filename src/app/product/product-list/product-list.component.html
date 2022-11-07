@@ -1,8 +1,14 @@
 <div class="row">
-
+  <app-product-list-search (searchTextChanged)="onSearchTextEntered($event)"></app-product-list-search>
   <ng-template [ngIf]="spaceshipOrRobot == 0">
     <div *ngFor="let product of allProducts" class="shadow-lg col-sm-4 p-4">
-      <app-product-card [product]="product"></app-product-card>
+      <!-- Unfortunately, the below line doesn't work. Apparently its because Angular doesn't support Polyfill functions anymore or something. See https://stackoverflow.com/questions/51811239/ts2339-property-includes-does-not-exist-on-type-string
+           I tried to change the target compiler, but it still didn't work. Instead, turned to https://www.delftstack.com/howto/typescript/typescript-string-contains/ to check what otherfunctions Typescript has to offer to do what I need. NONE OF THEM WORK!
+         *ngIf="searchText ==='' || product.Name.toLowerCase.includes(searchText) - Also tried .search but same issue.
+      -->
+      <div class="product-container" *ngIf="searchText ==='' || product.Name.toLowerCase.search(searchText)">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
     </div>
   </ng-template>
 
