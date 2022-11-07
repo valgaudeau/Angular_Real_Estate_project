@@ -6,7 +6,7 @@
            I tried to change the target compiler, but it still didn't work. Instead, turned to https://www.delftstack.com/howto/typescript/typescript-string-contains/ to check what otherfunctions Typescript has to offer to do what I need. NONE OF THEM WORK!
          *ngIf="searchText ==='' || product.Name.toLowerCase.includes(searchText) - Also tried .search but same issue.
       -->
-      <div class="product-container" *ngIf="searchText ==='' || product.Name.toLowerCase.search(searchText)">
+      <div class="product-container" *ngIf="searchText === '' ||   product.Name.toLowerCase().includes(searchText)">
         <app-product-card [product]="product"></app-product-card>
       </div>
     </div>
