@@ -13,8 +13,6 @@ export class ProductListComponent implements OnInit {
   allProducts: IProduct[] = [];
   allSpaceships: IProduct[] = [];
   allRobots: IProduct[] = [];
-  spaceshipsFromLocalStorage: IProduct[] = [];
-  robotsFromLocalStorage: IProduct[] = [];
   errorMessage: string = '';
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
