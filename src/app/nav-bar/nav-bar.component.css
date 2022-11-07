@@ -5,3 +5,7 @@ footer {
 .nav-link{
   cursor: pointer;
 }
+
+img {
+  max-height: 35px;
+}
