@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "real-estate": {
+    "sciFi-Angular-Shop": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/real-estate",
+            "outputPath": "dist/sciFi-Angular-Shop",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "real-estate:build:production"
+              "browserTarget": "sciFi-Angular-Shop:build:production"
             },
             "development": {
-              "browserTarget": "real-estate:build:development"
+              "browserTarget": "sciFi-Angular-Shop:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "real-estate:build"
+            "browserTarget": "sciFi-Angular-Shop:build"
           }
         },
         "test": {
