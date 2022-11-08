@@ -13,6 +13,8 @@ export class ProductListComponent implements OnInit {
   allProducts: IProduct[] = [];
   errorMessage: string = '';
   searchText: string = ''; // when the searchTextChanged event is raised, we set the value of this property
+  sortingParam: string = '';
+  sortDirection: string = 'asc';
 
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
@@ -50,6 +52,14 @@ export class ProductListComponent implements OnInit {
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue.toLowerCase();
     // console.log(this.searchText);
+  }
+
+  sortDirectionChange() {
+    if(this.sortDirection == 'asc') {
+      this.sortDirection = 'desc';
+    } else {
+      this.sortDirection == 'desc'
+    }
   }
 
 }

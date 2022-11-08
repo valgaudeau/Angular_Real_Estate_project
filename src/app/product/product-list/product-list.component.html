@@ -1,9 +1,20 @@
 
 <div class="row">
+  <div class="sorting">
+    <label>Sort by:</label>
+    <select [(ngModel)]="sortingParam">
+      <option value="Price">Price</option>
+    <!-- Maybe add some more sorting options here later -->
+    </select>
+    <button type="button" (click)="sortDirectionChange()">Sort</button>
+  </div>
+
   <app-product-list-search (searchTextChanged)="onSearchTextEntered($event)"></app-product-list-search>
-  <div *ngFor="let product of allProducts" class="shadow-lg col-sm-4 p-4">
+
+  <div *ngFor="let product of allProducts | sorting:[sortingParam, sortDirection]" class="shadow-lg col-sm-4 p-4">
     <div class="product-container" *ngIf="searchText === '' || product.Name.toLowerCase().includes(searchText)">
       <app-product-card [product]="product"></app-product-card>
     </div>
   </div>
+
 </div>
