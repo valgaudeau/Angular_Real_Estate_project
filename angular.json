@@ -95,6 +95,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "sciFi-Angular-Shop:build:production",
+            "firebaseProject": "scifi-angular-shop",
+            "firebaseHostingSite": "scifi-angular-shop"
+          }
         }
       }
     }

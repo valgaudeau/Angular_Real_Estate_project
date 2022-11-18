@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "scifi-angular-shop"
+  },
+  "targets": {
+    "scifi-angular-shop": {
+      "hosting": {
+        "sciFi-Angular-Shop": [
+          "scifi-angular-shop"
+        ]
+      }
+    }
   }
 }
