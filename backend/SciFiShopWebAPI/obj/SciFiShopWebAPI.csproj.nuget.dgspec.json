@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj": {}
+    "C:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj": {
+    "C:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj",
+        "projectUniqueName": "C:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj",
         "projectName": "SciFiShopWebAPI",
-        "projectPath": "c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj",
+        "projectPath": "C:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj",
         "packagesPath": "C:\\Users\\ValPC\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\obj\\",
+        "outputPath": "C:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ValPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -41,6 +41,22 @@
           "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.0, )"
             },

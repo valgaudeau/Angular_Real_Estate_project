@@ -450,3 +450,8 @@ bin
 obj
 backend/SciFiShopWebAPI/.vs/SciFiShopWebAPI/DesignTimeBuild
 backend/SciFiShopWebAPI/obj/Debug
+backend/SciFiShopWebAPI/bin
+backend/SciFiShopWebAPI/obj
+backend/SciFiShopWebAPI/.vs/SciFiShopWebAPI/FileContentIndex
+backend/SciFiShopWebAPI/.vs/SciFiShopWebAPI/v17
+backend/SciFiShopWebAPI/.vs/ProjectEvaluation
