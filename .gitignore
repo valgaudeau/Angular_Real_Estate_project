@@ -449,3 +449,4 @@ FodyWeavers.xsd
 bin
 obj
 backend/SciFiShopWebAPI/.vs/SciFiShopWebAPI/DesignTimeBuild
+backend/SciFiShopWebAPI/obj/Debug
