@@ -780,11 +780,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj",
+      "projectUniqueName": "c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj",
       "projectName": "SciFiShopWebAPI",
-      "projectPath": "C:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj",
+      "projectPath": "c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj",
       "packagesPath": "C:\\Users\\ValPC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\obj\\",
+      "outputPath": "c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ValPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -844,5 +844,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

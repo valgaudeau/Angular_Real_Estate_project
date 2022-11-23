@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Gc1dqG8X9ywRxENDrRwYDiU1gq/s272rVpPXsK3XRvrTDoJMtcVFqCUpy0OVAbxu3yZvEwvrK3y7sJaelo/m4w==",
+  "dgSpecHash": "6uZ1GVvl9Wt5pWhfXeX9ZunsEQFSfZDfY11JZ6UxKTnWSaWnud3dcSpDQ3x4hqTLaHA4acjLO/waiaK9G9+S1g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj",
+  "projectFilePath": "c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\SciFiShopWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ValPC\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0\\microsoft.entityframeworkcore.7.0.0.nupkg.sha512",
     "C:\\Users\\ValPC\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.0\\microsoft.entityframeworkcore.abstractions.7.0.0.nupkg.sha512",
@@ -23,5 +23,12 @@
     "C:\\Users\\ValPC\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
     "C:\\Users\\ValPC\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file c:\\Users\\ValPC\\Documents\\Programming\\angular_projects\\real-estate\\real-estate\\backend\\SciFiShopWebAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
