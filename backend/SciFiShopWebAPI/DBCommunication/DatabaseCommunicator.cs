@@ -16,8 +16,6 @@ namespace SciFiShopWebAPI.DBCommunication
       Configuration = configuration;
     }
 
-    public DbSet<Product> Products { get; set; } = null!; // Each DbSet matches to a database table
-
 /*    public DatabaseCommunicator(DbContextOptions<DatabaseCommunicator> options) : base(options)
     {
 
@@ -28,5 +26,6 @@ namespace SciFiShopWebAPI.DBCommunication
       optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SciFiShopDatabase")); // Since we're using sql, we have UseSqlServer method available to us to configure the Sql service provider.
     }
 
+    public DbSet<Product> Products { get; set; } = null!; // Each DbSet matches to a database table
   }
 }
