@@ -50,3 +50,5 @@ Thumbs.db
 bin
 obj
 backend/SciFiShopWebAPI/.vs/SciFiShopWebAPI/FileContentIndex/01d17190-fcc2-4262-8d1f-cca121d6f347.vsidx
+backend/SciFiShopWebAPI/.vs/SciFiShopWebAPI/DesignTimeBuild
+backend/SciFiShopWebAPI/obj/Debug
