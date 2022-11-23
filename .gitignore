@@ -448,3 +448,4 @@ FodyWeavers.xsd
 # my additions
 bin
 obj
+backend/SciFiShopWebAPI/.vs/SciFiShopWebAPI/DesignTimeBuild
