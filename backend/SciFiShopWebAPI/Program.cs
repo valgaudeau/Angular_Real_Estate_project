@@ -24,7 +24,7 @@ namespace SciFiShopWebAPI
       {
         options.AddPolicy(myCorsPolicy, policy =>
         {
-          policy.WithOrigins("http://localhost:4200");
+          policy.WithOrigins("http://localhost:5135").AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
         });
       });
 

@@ -17,6 +17,11 @@ export class ProductListComponent implements OnInit {
   constructor(private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit(): void {
+    // TESTING PRODUCT WEB API DATA
+    this.productService.getAllProducts().subscribe(data => {
+      console.log("this is the data coming from the product API " + data);
+    })
+
     // console.log(this.route.snapshot.url.toString()); // route.snapshot.url gives us the current path of the route
     // We call the subscribe method passing in an observer object. The observer object provides functions to react to the different types of notifications we can receive from an observer. Those 3 notifications are next, error, and complete.
     // next allows us to specify what we want to do when the observable emits the next value. Since this is an HTTP request, it only emits one time.

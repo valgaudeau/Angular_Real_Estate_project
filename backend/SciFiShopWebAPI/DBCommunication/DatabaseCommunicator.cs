@@ -21,12 +21,12 @@ namespace SciFiShopWebAPI.DBCommunication
 
     }
 
-    // Moved this into program
+    // Moved this into program class
     /*    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) // Here we can include some configuration information
         {
           optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SciFiShopDatabase")); // Since we're using sql, we have UseSqlServer method available to us to configure the Sql service provider.
         }*/
 
-    public DbSet<Product> Products { get; set; } = null!; // Each DbSet matches to a database table
+    public DbSet<Product> Products { get; set; } // Each DbSet matches to a database table
   }
 }
