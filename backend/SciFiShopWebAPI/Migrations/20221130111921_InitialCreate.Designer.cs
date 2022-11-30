@@ -11,7 +11,7 @@ using SciFiShopWebAPI.DBCommunication;
 namespace SciFiShopWebAPI.Migrations
 {
     [DbContext(typeof(DatabaseCommunicator))]
-    [Migration("20221123211333_InitialCreate")]
+    [Migration("20221130111921_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
