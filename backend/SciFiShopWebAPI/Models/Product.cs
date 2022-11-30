@@ -16,6 +16,20 @@ namespace SciFiShopWebAPI.Models
     public string ImageUrl { get; set; }
     public int Age { get; set; }
     public string Description { get; set; }
+
+    public Product(int id, string name, int spaceshipOrRobot, int price, string imageUrl, int age, string description)
+    {
+      id = Id;
+      Name = name;
+      SpaceshipOrRobot = spaceshipOrRobot;
+      Price = price;
+      ImageUrl = imageUrl;
+      Age = age;
+      Description = description;
+    }
+
   }
+
+
 
 }
