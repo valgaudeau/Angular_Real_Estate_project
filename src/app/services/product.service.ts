@@ -77,7 +77,7 @@ getProductById(idToFind: number) {
   return this.getAllProducts().pipe(
     map(productArray => {
       // throw new Error('test error');
-      return productArray.find(p => p.Id == idToFind);
+      return productArray.find(p => p.id == idToFind);
     })
   );
 }

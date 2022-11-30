@@ -20,6 +20,7 @@ export class ProductListComponent implements OnInit {
     // TESTING PRODUCT WEB API DATA
     this.productService.getAllProducts().subscribe(data => {
       console.log("this is the data coming from the product API " + data);
+      console.log(JSON.stringify(data));
     })
 
     // console.log(this.route.snapshot.url.toString()); // route.snapshot.url gives us the current path of the route
@@ -29,7 +30,7 @@ export class ProductListComponent implements OnInit {
     if(this.route.snapshot.url.toString() == 'spaceships') // spaceships in the url
     {
       this.productService.getAllProducts().subscribe({
-        next: products => this.allProducts = products.filter(products => products.SpaceshipOrRobot == 1),
+        next: products => this.allProducts = products.filter(products => products.spaceshipOrRobot == 1),
         error: err => this.errorMessage = err,
       })
       // console.log("yes this is the route.snapshot.url value for spaceship page " + this.route.snapshot.url.toString());
@@ -37,7 +38,7 @@ export class ProductListComponent implements OnInit {
     } else if (this.route.snapshot.url.toString() == 'robots') // robot in the url
     {
       this.productService.getAllProducts().subscribe({
-        next: products => this.allProducts = products.filter(products => products.SpaceshipOrRobot == 2),
+        next: products => this.allProducts = products.filter(products => products.spaceshipOrRobot == 2),
         error: err => this.errorMessage = err
       })
       // console.log("yes this is the route.snapshot.url value for robot page " + this.route.snapshot.url.toString());

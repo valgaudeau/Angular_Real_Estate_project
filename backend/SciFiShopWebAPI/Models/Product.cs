@@ -9,23 +9,23 @@ namespace SciFiShopWebAPI.Models
   public class Product
   {
     [Key] // Primary Key
-    public int Id { get; set; }
-    public string Name { get; set; } = null!; // without this null, the compiler warns us that it can't see where this non-nullable property is initialized. By writing null, we're saying we know what we're doing essentially and don't show me this error
-    public int SpaceshipOrRobot { get; set; }
-    public int Price { get; set; }
-    public string ImageUrl { get; set; }
-    public int Age { get; set; }
-    public string Description { get; set; }
+    public int id { get; set; }
+    public string name { get; set; } = null!; // without this null, the compiler warns us that it can't see where this non-nullable property is initialized. By writing null, we're saying we know what we're doing essentially and don't show me this error
+    public int spaceshipOrRobot { get; set; }
+    public int price { get; set; }
+    public string imageUrl { get; set; }
+    public int age { get; set; }
+    public string description { get; set; }
 
-    public Product(int id, string name, int spaceshipOrRobot, int price, string imageUrl, int age, string description)
+    public Product(int Id, string Name, int SpaceshipOrRobot, int Price, string ImageUrl, int Age, string Description)
     {
       id = Id;
-      Name = name;
-      SpaceshipOrRobot = spaceshipOrRobot;
-      Price = price;
-      ImageUrl = imageUrl;
-      Age = age;
-      Description = description;
+      name = Name;
+      spaceshipOrRobot = SpaceshipOrRobot;
+      price = Price;
+      imageUrl = ImageUrl;
+      age = Age;
+      description = Description;
     }
 
   }

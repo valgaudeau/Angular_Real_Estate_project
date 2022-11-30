@@ -2,10 +2,10 @@
 <div class="row shadow pt-5">
   <div class="col-sm-4 p-0">
     <div class="card">
-      <img *ngIf="productToDisplay?.Image" img src="assets/images/{{productToDisplay.Image}}.PNG">
-      <img *ngIf="!productToDisplay?.Image" img src="assets/images/default.PNG">
+      <img *ngIf="productToDisplay?.image" img src="assets/images/{{productToDisplay.image}}.PNG">
+      <img *ngIf="!productToDisplay?.image" img src="assets/images/default.PNG">
       <div class="card-body">
-        <h1>{{productToDisplay.Name}}</h1>
+        <h1>{{productToDisplay.name}}</h1>
       </div>
       <div class="card-footer">
         <div class="btn-group"> <!-- d-flex fills up the width of the column -->
@@ -21,16 +21,16 @@
         <tab heading="Product Information">
           <div class="heading ms-3 mt-2">
             <strong>PRODUCT AGE:</strong>
-            <p>{{productToDisplay.Age}} Years Old</p>
+            <p>{{productToDisplay.age}} Years Old</p>
           </div>
           <div class="heading ms-3 mt-2">
             <strong>PRODUCT TYPE:</strong>
-            <p *ngIf="productToDisplay?.SpaceshipOrRobot == 1">Spaceship</p>
-            <p *ngIf="productToDisplay?.SpaceshipOrRobot == 2">Robot</p>
+            <p *ngIf="productToDisplay?.spaceshipOrRobot == 1">Spaceship</p>
+            <p *ngIf="productToDisplay?.spaceshipOrRobot == 2">Robot</p>
           </div>
           <div class="heading ms-3 mt-2 me-4">
             <strong>PRODUCT DESCRIPTION:</strong>
-            <p>{{productToDisplay.Description}}</p>
+            <p>{{productToDisplay.description}}</p>
           </div>
         </tab>
         <tab heading="More Pictures">

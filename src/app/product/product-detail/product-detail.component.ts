@@ -12,12 +12,12 @@ export class ProductDetailComponent implements OnInit {
   public productId: number | undefined;
   // Same thing as in addProductComponent, don't like how this is done, refactor later if I find a better solution
   productToDisplay: IProduct = {
-    Id: -1,
-    Name: 'default name',
-    SpaceshipOrRobot: -1,
-    Price: -1,
-    Age: -1,
-    Description: 'default description'
+    id: -1,
+    name: 'default name',
+    spaceshipOrRobot: -1,
+    price: -1,
+    age: -1,
+    description: 'default description'
   }
 
   constructor(private route: ActivatedRoute, private router: Router, private productService: ProductService) { }
@@ -29,13 +29,13 @@ export class ProductDetailComponent implements OnInit {
         this.productId = Number(params['id']);
         this.productService.getProductById(this.productId).subscribe(
           data => {
-            this.productToDisplay.Name = data?.Name!;
-            this.productToDisplay.SpaceshipOrRobot = data?.SpaceshipOrRobot!;
-            this.productToDisplay.Image = data?.Image!;
-            this.productToDisplay.Price = data?.Price!;
-            this.productToDisplay.Age = data?.Age!;
-            this.productToDisplay.Description = data?.Description!;
-            console.log(this.productToDisplay);
+            this.productToDisplay.name = data?.name!;
+            this.productToDisplay.spaceshipOrRobot = data?.spaceshipOrRobot!;
+            this.productToDisplay.image = data?.image!;
+            this.productToDisplay.price = data?.price!;
+            this.productToDisplay.age = data?.age!;
+            this.productToDisplay.description = data?.description!;
+            // console.log(this.productToDisplay);
           }, error => this.router.navigate(['/']) // If the data from the API throws an error, stay on home page. Need to use Route Resolver for this, but haven't managed to make it work yet
         )
       }
