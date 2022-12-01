@@ -19,30 +19,51 @@ constructor(private http:HttpClient) { }
 // Next, we have the catchError function. Often the emitted data will have errors, and we want our pipe to catch these issues.
 getAllProducts() : Observable<IProduct[]>
 {
-  return this.http.get<IProduct[]>(this.propertyUrl).pipe(
-    map(data => {
+  return this.http.get<IProduct[]>('http://localhost:5135/api/product').pipe(
+      map(data => {
       // Need to have the array of products from local storage and from the JSON file
-      const productsFromJsonFile: Array<IProduct> = [];
+      const productsFromController: Array<IProduct> = [];
       const productsFromLocalStorage: Array<IProduct> = JSON.parse(localStorage.getItem('productId') || '{}');
 
       if(productsFromLocalStorage) {
         for(const id in productsFromLocalStorage) {
           if(data.hasOwnProperty(id)) {
-            productsFromJsonFile.push(productsFromLocalStorage[id]);
+            productsFromController.push(productsFromLocalStorage[id]);
           }
         }
       }
 
       for(const id in data) {
         if(data.hasOwnProperty(id)) {
-          productsFromJsonFile.push(data[id]);
+          productsFromController.push(data[id]);
         }
       }
-      return productsFromJsonFile;
+      return productsFromController;
     })
   );
-
+  // CODE FOR RETRIEVING PRODUCTS FROM JSON FILE
   // return this.http.get<IProduct[]>(this.propertyUrl).pipe(
+  //   map(data => {
+  //     // Need to have the array of products from local storage and from the JSON file
+  //     const productsFromJsonFile: Array<IProduct> = [];
+  //     const productsFromLocalStorage: Array<IProduct> = JSON.parse(localStorage.getItem('productId') || '{}');
+
+  //     if(productsFromLocalStorage) {
+  //       for(const id in productsFromLocalStorage) {
+  //         if(data.hasOwnProperty(id)) {
+  //           productsFromJsonFile.push(productsFromLocalStorage[id]);
+  //         }
+  //       }
+  //     }
+
+  //     for(const id in data) {
+  //       if(data.hasOwnProperty(id)) {
+  //         productsFromJsonFile.push(data[id]);
+  //       }
+  //     }
+  //     return productsFromJsonFile;
+  //   })
+  // );
   //   // if need to console log all of the data again, use tap(data => console.log('All', JSON.stringify(data))),
   //   tap(),
   //   catchError(this.handleError)
@@ -56,7 +77,7 @@ getProductById(idToFind: number) {
   return this.getAllProducts().pipe(
     map(productArray => {
       // throw new Error('test error');
-      return productArray.find(p => p.Id == idToFind);
+      return productArray.find(p => p.id == idToFind);
     })
   );
 }

@@ -11,21 +11,22 @@ namespace SciFiShopWebAPI.DBCommunication
   {
     protected readonly IConfiguration Configuration;
 
-    public DatabaseCommunicator(IConfiguration configuration)
+/*    public DatabaseCommunicator(IConfiguration configuration)
     {
       Configuration = configuration;
-    }
-
-/*    public DatabaseCommunicator(DbContextOptions<DatabaseCommunicator> options) : base(options)
-    {
-
     }*/
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) // Here we can include some configuration information
+    public DatabaseCommunicator(DbContextOptions<DatabaseCommunicator> options) : base(options)
     {
-      optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SciFiShopDatabase")); // Since we're using sql, we have UseSqlServer method available to us to configure the Sql service provider.
+
     }
 
-    public DbSet<Product> Products { get; set; } = null!; // Each DbSet matches to a database table
+    // Moved this into program class
+    /*    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) // Here we can include some configuration information
+        {
+          optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SciFiShopDatabase")); // Since we're using sql, we have UseSqlServer method available to us to configure the Sql service provider.
+        }*/
+
+    public DbSet<Product> Products { get; set; } // Each DbSet matches to a database table
   }
 }
