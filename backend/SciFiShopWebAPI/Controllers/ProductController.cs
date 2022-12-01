@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SciFiShopWebAPI.DBCommunication;
+using SciFiShopWebAPI.DBCommunication.Repositories;
 using SciFiShopWebAPI.Models;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -14,22 +15,19 @@ namespace SciFiShopWebAPI.Controllers
   [EnableCors("appCors")]
   public class ProductController : ControllerBase // All controllers should inherit from this base class
   {
-    private readonly DatabaseCommunicator databaseCommunicator;
+    private readonly IProductRepository productRepository;
 
-    public ProductController(DatabaseCommunicator databaseCommunicator)
+    public ProductController(IProductRepository productRepository)
     {
-      this.databaseCommunicator = databaseCommunicator;
+      this.productRepository = productRepository;
     } 
 
     // RETRIEVE
     [HttpGet(Name = "GetProducts")]
     public async Task <IEnumerable<Product>> GetProducts()
     {
-      // Retrieve products from the database - Do this later, will have to seed the data
-      /*      List<Product> productList = databaseCommunicator.Products.ToList();
-            return productList;*/
-
-      // Hard code products in here for now just to test the API - Will retrieve this from database later
+      // Retrieve products from the database - Do this later, use ProductRepostory object, will need to seed data in database on first run
+      // For now Hard coding the products here just to test the API
       Product xwing = new Product(1, "X-WING", 1, 14000, "x-wing", 5, "The X-wing is a versatile Rebel Alliance starfighter that balances speed with firepower. Armed with four laser cannons and two proton torpedo launchers, the X-wing can take on anything the Empire throws at it. Nimble engines give the X-wing an edge during dogfights, and it can make long-range jumps with its hyperdrive and its astromech droid co-pilot.");
       Product millenium = new Product(2, "MILLENIUM", 1, 53000, "millenium-falcon", 20, "An extensively modified Corellian light freighter, the Millennium Falcon is a legend in smuggler circles and is coveted by many for being the fastest hunk of junk in the galaxy. Despite her humble origins and shabby exterior, the ship that made the Kessel Run in less than 12 parsecs has played a role in some of the greatest victories of the Rebel Alliance and the New Republic.");
       Product imperialFighter = new Product(3, "IMPERIAL FIGHTER", 1, 15500, "imperial-fighter", 23, "The imperial fighter was the unforgettable symbol of the Imperial fleet. Carried aboard Star Destroyers and battle stations, imperial fighters were single-pilot vehicles designed for fast-paced dogfights with Rebel X-wings and other starfighters. The iconic imperial fighter led to other models in the imperial family including the dagger-shaped TIE Interceptor and the explosive-laden imperial bomber. The terrifying roar of a imperial's engines would strike fear into the hearts of all enemies of the Empire.");
@@ -47,20 +45,18 @@ namespace SciFiShopWebAPI.Controllers
     [HttpPost(Name = "AddProduct")]
     public async Task<IActionResult> AddProduct(Product productToInsertInDb)
     {
-      await databaseCommunicator.Products.AddAsync(productToInsertInDb);
-      await databaseCommunicator.SaveChangesAsync();
+      productRepository.AddProduct(productToInsertInDb);
+      await productRepository.SaveChangesAsync();
       return Ok(productToInsertInDb); // returns 200 response
     }
 
     // DELETE
     [HttpPost(Name = "delete/{id}")]
-    public async Task<IActionResult> DeleteProduct(int productIdToDeleteInDb)
+    public async Task<IActionResult> DeleteProduct(int idOfProductToDeleteInDb)
     {
-      var productToDeleteInDb = await databaseCommunicator.Products.FindAsync(productIdToDeleteInDb);
-      databaseCommunicator.Products.Remove(productToDeleteInDb);
-      await databaseCommunicator.SaveChangesAsync();
-      return Ok(productIdToDeleteInDb); // returns 200 response
+      productRepository.DeleteProduct(idOfProductToDeleteInDb);
+      await productRepository.SaveChangesAsync();
+      return Ok(idOfProductToDeleteInDb); // returns 200 response
     }
-
   }
 }
