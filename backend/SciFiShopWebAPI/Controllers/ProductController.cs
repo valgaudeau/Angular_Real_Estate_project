@@ -10,7 +10,7 @@ using System.Runtime.Intrinsics.X86;
 namespace SciFiShopWebAPI.Controllers
 {
   [ApiController]
-  [Route("api/[controller]")]
+  [Route("api/[controller]")] // the route will be api/product/nameGivenToMethod. For example localhost:5135/api/product/getproducts .
   [EnableCors("appCors")]
   public class ProductController : ControllerBase // All controllers should inherit from this base class
   {
@@ -21,8 +21,9 @@ namespace SciFiShopWebAPI.Controllers
       this.databaseCommunicator = databaseCommunicator;
     } 
 
+    // RETRIEVE
     [HttpGet(Name = "GetProducts")]
-    public IEnumerable<Product> GetProducts()
+    public async Task <IEnumerable<Product>> GetProducts()
     {
       // Retrieve products from the database - Do this later, will have to seed the data
       /*      List<Product> productList = databaseCommunicator.Products.ToList();
@@ -41,5 +42,25 @@ namespace SciFiShopWebAPI.Controllers
 
       return new Product[] { xwing, millenium, imperialFighter, glados, r2d2, ravenSpaceship, theEnterprise, ironGiant, terminator };
     }
+
+    // CREATE - Should look like api/product/post
+    [HttpPost(Name = "AddProduct")]
+    public async Task<IActionResult> AddProduct(Product productToInsertInDb)
+    {
+      await databaseCommunicator.Products.AddAsync(productToInsertInDb);
+      await databaseCommunicator.SaveChangesAsync();
+      return Ok(productToInsertInDb); // returns 200 response
+    }
+
+    // DELETE
+    [HttpPost(Name = "delete/{id}")]
+    public async Task<IActionResult> DeleteProduct(int productIdToDeleteInDb)
+    {
+      var productToDeleteInDb = await databaseCommunicator.Products.FindAsync(productIdToDeleteInDb);
+      databaseCommunicator.Products.Remove(productToDeleteInDb);
+      await databaseCommunicator.SaveChangesAsync();
+      return Ok(productIdToDeleteInDb); // returns 200 response
+    }
+
   }
 }

@@ -28,5 +28,10 @@ namespace SciFiShopWebAPI.Models
       description = Description;
     }
 
+    public Product()
+    {
+
+    }
+
   }
 }
