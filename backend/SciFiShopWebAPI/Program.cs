@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SciFiShopWebAPI.DBCommunication;
-using SciFiShopWebAPI.DBCommunication.Repositories;
+using SciFiShopWebAPI.Interfaces;
 
 namespace SciFiShopWebAPI
 {
@@ -18,7 +18,7 @@ namespace SciFiShopWebAPI
       builder.Services.AddSwaggerGen();
       // This should register the DbContext with .NET CORE's dependency injection container
       builder.Services.AddDbContext<DatabaseCommunicator>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SciFiShopDatabase")));
-      builder.Services.AddScoped<IProductRepository, ProductRepositoryImpl>();
+      builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
       // Enable CORS (Cross-Origin Resource Sharing)
       var myCorsPolicy = "appCors";

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using SciFiShopWebAPI.DBCommunication;
-using SciFiShopWebAPI.DBCommunication.Repositories;
+using SciFiShopWebAPI.Interfaces;
 using SciFiShopWebAPI.Models;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -15,14 +15,14 @@ namespace SciFiShopWebAPI.Controllers
   [EnableCors("appCors")]
   public class ProductController : ControllerBase // All controllers should inherit from this base class
   {
-    private readonly IProductRepository productRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public ProductController(IProductRepository productRepository)
+    public ProductController(IUnitOfWork unitOfWork)
     {
-      this.productRepository = productRepository;
+      _unitOfWork = unitOfWork;
     } 
 
-    // RETRIEVE
+    // RETRIEVE - api/product
     [HttpGet(Name = "GetProducts")]
     public async Task <IEnumerable<Product>> GetProducts()
     {
@@ -41,21 +41,21 @@ namespace SciFiShopWebAPI.Controllers
       return new Product[] { xwing, millenium, imperialFighter, glados, r2d2, ravenSpaceship, theEnterprise, ironGiant, terminator };
     }
 
-    // CREATE - Should look like api/product/post
+    // CREATE - api/product/post
     [HttpPost(Name = "AddProduct")]
     public async Task<IActionResult> AddProduct(Product productToInsertInDb)
     {
-      productRepository.AddProduct(productToInsertInDb);
-      await productRepository.SaveChangesAsync();
+      _unitOfWork.ProductRepository.AddProduct(productToInsertInDb);
+      await _unitOfWork.SaveChangesAsync();
       return Ok(productToInsertInDb); // returns 200 response
     }
 
-    // DELETE
+    // DELETE - api/product/delete/id
     [HttpPost(Name = "delete/{id}")]
     public async Task<IActionResult> DeleteProduct(int idOfProductToDeleteInDb)
     {
-      productRepository.DeleteProduct(idOfProductToDeleteInDb);
-      await productRepository.SaveChangesAsync();
+      _unitOfWork.ProductRepository.DeleteProduct(idOfProductToDeleteInDb);
+      await _unitOfWork.SaveChangesAsync();
       return Ok(idOfProductToDeleteInDb); // returns 200 response
     }
   }

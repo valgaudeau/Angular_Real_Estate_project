@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SciFiShopWebAPI.Interfaces;
 using SciFiShopWebAPI.Models;
 
 namespace SciFiShopWebAPI.DBCommunication.Repositories
@@ -27,9 +28,5 @@ namespace SciFiShopWebAPI.DBCommunication.Repositories
       databaseCommunicator.Products.Remove(product);
     }
 
-    public async Task<bool> SaveChangesAsync()
-    {
-      return await databaseCommunicator.SaveChangesAsync() > 0; // without this > 0, it throws an error. I have no idea why. 
-    }
   }
 }

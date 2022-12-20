@@ -9,9 +9,9 @@ namespace SciFiShopWebAPI.DBCommunication
 {
   public class DatabaseCommunicator : DbContext // DbContext represents a session in the database
   {
-    protected readonly IConfiguration Configuration;
+/*    protected readonly IConfiguration Configuration;
 
-/*    public DatabaseCommunicator(IConfiguration configuration)
+    public DatabaseCommunicator(IConfiguration configuration)
     {
       Configuration = configuration;
     }*/
