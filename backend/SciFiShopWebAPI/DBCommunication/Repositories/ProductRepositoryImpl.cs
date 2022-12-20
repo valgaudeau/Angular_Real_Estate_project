@@ -25,7 +25,10 @@ namespace SciFiShopWebAPI.DBCommunication.Repositories
     public void DeleteProduct(int idOfProductToDeleteInDb)
     {
       var product = databaseCommunicator.Products.Find(idOfProductToDeleteInDb);
-      databaseCommunicator.Products.Remove(product);
+      if(product != null)
+      {
+        databaseCommunicator.Products.Remove(product);
+      }
     }
 
   }

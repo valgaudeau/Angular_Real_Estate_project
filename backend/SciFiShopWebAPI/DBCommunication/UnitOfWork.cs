@@ -16,7 +16,7 @@ namespace SciFiShopWebAPI.DBCommunication
 
     public async Task<bool> SaveChangesAsync()
     {
-      // any value greater than 0 means that the changes were successfully saved
+      // Returns the number of changes made in the database
       return await databaseCommunicator.SaveChangesAsync() > 0; 
     }
   }
