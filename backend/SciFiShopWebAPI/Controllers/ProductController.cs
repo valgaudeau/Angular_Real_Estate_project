@@ -56,11 +56,11 @@ namespace SciFiShopWebAPI.Controllers
 
     // DELETE - api/product/delete/id
     [HttpDelete("delete/{id}")]
-    public async Task<IActionResult> DeleteProduct(int idOfProductToDeleteInDb)
+    public async Task<IActionResult> DeleteProduct(int id)
     {
-      _unitOfWork.ProductRepository.DeleteProduct(idOfProductToDeleteInDb);
+      _unitOfWork.ProductRepository.DeleteProduct(id);
       await _unitOfWork.SaveChangesAsync();
-      return Ok(idOfProductToDeleteInDb); // returns 200 response
+      return Ok(id); // returns 200 response
     }
   }
 }
