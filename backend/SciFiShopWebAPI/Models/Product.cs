@@ -22,6 +22,9 @@ namespace SciFiShopWebAPI.Models
     public string imageUrl { get; set; }
     public int age { get; set; }
     public string description { get; set; }
+    // We don't want lastUpdatedOn and lastUpdatedBy exposed publicly, which is why we have DTO 
+    public DateTime lastUpdatedOn { get; set; }
+    public int lastUpdatedBy { get; set; }
 
     public Product(int Id, string Name, int SpaceshipOrRobot, int Price, string ImageUrl, int Age, string Description)
     {
