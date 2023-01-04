@@ -34,7 +34,7 @@ namespace SciFiShopWebAPI.Controllers
     //Product ironGiant = new Product(8, "IRON GIANT", 2, 200000, "iron-giant", 7, "The Iron Giant is a 50-foot tall autonomous Metal Man from another world that crash lands on Earth before becoming friends with a young boy named Hogarth who rescues him from his own internal defensive mechanism in the Warner Bros. 1999 animated science fiction film of the same name, voiced by Vin Diesel. The Iron Giant is loosely based on the title character of The Iron Man, a 1968 novel by Ted Hughes.");
     //Product terminator = new Product(9, "TERMINATOR", 2, 67500, "terminator", 15, "Cyborg assassin and soldier, designed for infiltration and combat duty, used by the military supercomputer Skynet toward the ultimate goal of exterminating the Human Resistance. The terminators were created by Cyberdyne Systems. Terminators can withstand standard 20th century firearms, crash through wall intact, and survive explosions to some degree. Repeated shotgun blasts have enough force to knock it down and temprarily disable it, while heavy amounts of automatic fire are able to compromise the organise disguise layer.");
 
-    // RETRIEVE - api/product
+    // RETRIEVE - localhost:5135/api/product
     [HttpGet(Name = "GetProducts")]
     public async Task <IActionResult> GetProducts()
     {
@@ -58,7 +58,40 @@ namespace SciFiShopWebAPI.Controllers
       return Ok(listOfProductsDto);
     }
 
-    // CREATE - api/product/post -- Your API call needs to include the data in JSON format
+    // UPDATE using PUT method - localhost:5135/api/product/update/1
+    [HttpPut("update/{id}")]
+    public async Task<IActionResult> UpdateProduct(int id, ProductDto productDto)
+    {
+      // First we need to retrieve the Product that the client wants to modify from the database
+      var productFromDb = await _unitOfWork.ProductRepository.FindProduct(id);
+      // Map the productDto properties to those of the domain model entry found in the database
+      productFromDb.name = productDto.name;
+      productFromDb.spaceshipOrRobot = productDto.spaceshipOrRobot;
+      productFromDb.price = productDto.price;
+      productFromDb.imageUrl = productDto.imageUrl;
+      productFromDb.age = productDto.age;
+      productFromDb.description = productDto.description;
+      productFromDb.lastUpdatedBy = 1;
+      productFromDb.lastUpdatedOn = DateTime.Now;
+      await _unitOfWork.SaveChangesAsync();
+      return StatusCode(200);
+    }
+
+    // UPDATE only product name using PUT method - localhost:5135/api/product/updateProductName/1
+    [HttpPut("updateProductName/{id}")]
+    public async Task<IActionResult> UpdateProductName(int id, ProductDtoUpdateName productDto)
+    {
+      // First we need to retrieve the Product that the client wants to modify from the database
+      var productFromDb = await _unitOfWork.ProductRepository.FindProduct(id);
+      // Map the productDto properties to those of the domain model entry found in the database
+      productFromDb.name = productDto.name;
+      productFromDb.lastUpdatedBy = 1;
+      productFromDb.lastUpdatedOn = DateTime.Now;
+      await _unitOfWork.SaveChangesAsync();
+      return StatusCode(200);
+    }
+
+    // CREATE - localhost:5135/api/product/post -- Your API call needs to include the data in JSON format
     [HttpPost("post")]
     public async Task<IActionResult> AddProduct(ProductDto productDto)
     {
@@ -80,7 +113,7 @@ namespace SciFiShopWebAPI.Controllers
       return Ok(product); // returns 200 response
     }
 
-    // DELETE - api/product/delete/id
+    // DELETE - localhost:5135/api/product/delete/id
     [HttpDelete("delete/{id}")]
     public async Task<IActionResult> DeleteProduct(int id)
     {

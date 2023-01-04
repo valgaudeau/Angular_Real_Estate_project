@@ -39,5 +39,9 @@ namespace SciFiShopWebAPI.DBCommunication.Repositories
       }
     }
 
+    public async Task<Product> FindProduct(int idOfProductToUpdateInDb)
+    {
+      return await databaseCommunicator.Products.FindAsync(idOfProductToUpdateInDb);
+    }
   }
 }
