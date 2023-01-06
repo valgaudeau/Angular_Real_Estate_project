@@ -1,14 +1,26 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SciFiShopWebAPI.DTO
 {
   public class ProductDto
   {
     // THIS CLASS ONLY CONTAINS THE PROPERTIES THAT WE WANT EXPOSED TO OUR CLIENTS
     public int id { get; set; }
-    public string name { get; set; } = null!; // without this null, the compiler warns us that it can't see where this non-nullable property is initialized. By writing null, we're saying we know what we're doing essentially and don't show me this error
+    // Commented out the below because the Regex Validation is not working as intended - Come back to this later
+    // [RegularExpression(".*[a-zA-Z]+.*", ErrorMessage = "Purely numerical values are not allowed")]
+    [Required (ErrorMessage = "Missing name attribute - Custom message")]
+    [StringLength(50), MinLength(2)]
+    public string name { get; set; }
+    [Required]
     public int spaceshipOrRobot { get; set; }
+    [Required]
+    [RegularExpression(".")]
     public int price { get; set; }
+    [Required]
     public string imageUrl { get; set; }
+    [Required]
     public int age { get; set; }
+    [Required]
     public string description { get; set; }
   }
 }

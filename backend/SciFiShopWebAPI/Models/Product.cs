@@ -16,7 +16,7 @@ namespace SciFiShopWebAPI.Models
     // change the casing in the backend, but keep that in mind anyway. 
     [Key] // Primary Key
     public int id { get; set; }
-    public string name { get; set; } = null!; // without this null, the compiler warns us that it can't see where this non-nullable property is initialized. By writing null, we're saying we know what we're doing essentially and don't show me this error
+    public string name { get; set; }
     public int spaceshipOrRobot { get; set; }
     public int price { get; set; }
     public string imageUrl { get; set; }

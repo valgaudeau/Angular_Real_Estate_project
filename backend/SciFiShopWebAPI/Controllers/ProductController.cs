@@ -62,19 +62,34 @@ namespace SciFiShopWebAPI.Controllers
     [HttpPut("update/{id}")]
     public async Task<IActionResult> UpdateProduct(int id, ProductDto productDto)
     {
-      // First we need to retrieve the Product that the client wants to modify from the database
-      var productFromDb = await _unitOfWork.ProductRepository.FindProduct(id);
-      // Map the productDto properties to those of the domain model entry found in the database
-      productFromDb.name = productDto.name;
-      productFromDb.spaceshipOrRobot = productDto.spaceshipOrRobot;
-      productFromDb.price = productDto.price;
-      productFromDb.imageUrl = productDto.imageUrl;
-      productFromDb.age = productDto.age;
-      productFromDb.description = productDto.description;
-      productFromDb.lastUpdatedBy = 1;
-      productFromDb.lastUpdatedOn = DateTime.Now;
-      await _unitOfWork.SaveChangesAsync();
-      return StatusCode(200);
+      try
+      {
+        if (id != productDto.id)
+        {
+          return BadRequest("An error occurred");
+        }
+        // First we need to retrieve the Product that the client wants to modify from the database
+        var productFromDb = await _unitOfWork.ProductRepository.FindProduct(id);
+        if (productFromDb == null)
+        {
+          return BadRequest("An error occurred");
+        }
+        // Map the productDto properties to those of the domain model entry found in the database
+        productFromDb.name = productDto.name;
+        productFromDb.spaceshipOrRobot = productDto.spaceshipOrRobot;
+        productFromDb.price = productDto.price;
+        productFromDb.imageUrl = productDto.imageUrl;
+        productFromDb.age = productDto.age;
+        productFromDb.description = productDto.description;
+        productFromDb.lastUpdatedBy = 1;
+        productFromDb.lastUpdatedOn = DateTime.Now;
+        await _unitOfWork.SaveChangesAsync();
+        return StatusCode(200);
+      }
+      catch (Exception e)
+      {
+        return StatusCode(500, "Some unknown error has occurred");
+      }
     }
 
     // UPDATE only product name using PUT method - localhost:5135/api/product/updateProductName/1
@@ -83,6 +98,10 @@ namespace SciFiShopWebAPI.Controllers
     {
       // First we need to retrieve the Product that the client wants to modify from the database
       var productFromDb = await _unitOfWork.ProductRepository.FindProduct(id);
+      if (productFromDb == null)
+      {
+        return BadRequest("An error occurred");
+      }
       // Map the productDto properties to those of the domain model entry found in the database
       productFromDb.name = productDto.name;
       productFromDb.lastUpdatedBy = 1;
