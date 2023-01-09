@@ -32,17 +32,17 @@ namespace SciFiShopWebAPI
 
       var app = builder.Build();
 
-      // Configure the HTTP request pipeline.
+      // Configure the HTTP request pipeline. 
       if (app.Environment.IsDevelopment())
       {
         app.UseSwagger();
         app.UseSwaggerUI();
       }
 
+      // All of these Use methods are part of the MIDDLEWARE
       app.UseCors();
 
       app.UseAuthorization();
-
 
       app.MapControllers();
 

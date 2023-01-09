@@ -23,7 +23,7 @@ namespace SciFiShopWebAPI.Controllers
       _unitOfWork = unitOfWork;
     }
 
-    // HARD-CODED PRODUCTS
+    // THE HARD-CODED PRODUCTS
     //Product xwing = new Product(1, "X-WING", 1, 14000, "x-wing", 5, "The X-wing is a versatile Rebel Alliance starfighter that balances speed with firepower. Armed with four laser cannons and two proton torpedo launchers, the X-wing can take on anything the Empire throws at it. Nimble engines give the X-wing an edge during dogfights, and it can make long-range jumps with its hyperdrive and its astromech droid co-pilot.");
     //Product millenium = new Product(2, "MILLENIUM", 1, 53000, "millenium-falcon", 20, "An extensively modified Corellian light freighter, the Millennium Falcon is a legend in smuggler circles and is coveted by many for being the fastest hunk of junk in the galaxy. Despite her humble origins and shabby exterior, the ship that made the Kessel Run in less than 12 parsecs has played a role in some of the greatest victories of the Rebel Alliance and the New Republic.");
     //Product imperialFighter = new Product(3, "IMPERIAL FIGHTER", 1, 15500, "imperial-fighter", 23, "The imperial fighter was the unforgettable symbol of the Imperial fleet. Carried aboard Star Destroyers and battle stations, imperial fighters were single-pilot vehicles designed for fast-paced dogfights with Rebel X-wings and other starfighters. The iconic imperial fighter led to other models in the imperial family including the dagger-shaped TIE Interceptor and the explosive-laden imperial bomber. The terrifying roar of a imperial's engines would strike fear into the hearts of all enemies of the Empire.");
