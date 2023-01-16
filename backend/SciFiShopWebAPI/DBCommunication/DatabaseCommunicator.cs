@@ -21,5 +21,7 @@ namespace SciFiShopWebAPI.DBCommunication
         }*/
 
     public DbSet<Product> Products { get; set; } // Each DbSet matches to a database table
+
+    public DbSet<User> Users { get; set; }
   }
 }

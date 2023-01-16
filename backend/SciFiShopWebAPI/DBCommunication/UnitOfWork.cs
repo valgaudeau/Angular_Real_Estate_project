@@ -13,6 +13,7 @@ namespace SciFiShopWebAPI.DBCommunication
     }
 
     public IProductRepository ProductRepository => new ProductRepositoryImpl(databaseCommunicator);
+    public IUserRepository UserRepository => new UserRepository(databaseCommunicator);
 
     public async Task<bool> SaveChangesAsync()
     {
