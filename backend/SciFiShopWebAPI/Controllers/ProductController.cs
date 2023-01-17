@@ -8,12 +8,14 @@ using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Runtime.Intrinsics.X86;
 using SciFiShopWebAPI.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SciFiShopWebAPI.Controllers
 {
   [ApiController]
   [Route("api/[controller]")] // the route will be api/product/nameGivenToMethod. For example localhost:5135/api/product/getproducts .
   [EnableCors("appCors")]
+  [Authorize]
   public class ProductController : ControllerBase // All controllers should inherit from this base class
   {
     private readonly IUnitOfWork _unitOfWork;
@@ -36,6 +38,7 @@ namespace SciFiShopWebAPI.Controllers
 
     // RETRIEVE - localhost:5135/api/product
     [HttpGet(Name = "GetProducts")]
+    [AllowAnonymous] // This attribute makes this method visible to anyone even if the Controller has the Authorize attribute, which is fine for this specific endpoint
     public async Task <IActionResult> GetProducts()
     {
       // Retrieve products from the database

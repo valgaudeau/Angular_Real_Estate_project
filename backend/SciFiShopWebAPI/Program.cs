@@ -1,6 +1,9 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using SciFiShopWebAPI.DBCommunication;
 using SciFiShopWebAPI.Interfaces;
+using System.Text;
 
 namespace SciFiShopWebAPI
 {
@@ -11,7 +14,6 @@ namespace SciFiShopWebAPI
       var builder = WebApplication.CreateBuilder(args);
 
       // Add services to the container.
-
       builder.Services.AddControllers();
       // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
       builder.Services.AddEndpointsApiExplorer();
@@ -19,6 +21,19 @@ namespace SciFiShopWebAPI
       // This should register the DbContext with .NET CORE's dependency injection container
       builder.Services.AddDbContext<DatabaseCommunicator>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SciFiShopDatabase")));
       builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+      var secretKey = builder.Configuration.GetSection("AppSettings:Key").Value;
+      var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+      builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                      .AddJwtBearer(options =>
+                      {
+                        options.TokenValidationParameters = new TokenValidationParameters
+                        {
+                          ValidateIssuerSigningKey = true,
+                          ValidateIssuer = false,
+                          ValidateAudience = false,
+                          IssuerSigningKey = key
+                        };
+                      });
 
       // Enable CORS (Cross-Origin Resource Sharing)
       var myCorsPolicy = "appCors";
@@ -41,7 +56,7 @@ namespace SciFiShopWebAPI
 
       // All of these Use methods are part of the MIDDLEWARE
       app.UseCors();
-
+      app.UseAuthentication(); // this must be placed before Authorization for obvious reasons
       app.UseAuthorization();
 
       app.MapControllers();
