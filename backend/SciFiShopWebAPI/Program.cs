@@ -21,8 +21,10 @@ namespace SciFiShopWebAPI
       // This should register the DbContext with .NET CORE's dependency injection container
       builder.Services.AddDbContext<DatabaseCommunicator>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SciFiShopDatabase")));
       builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
       var secretKey = builder.Configuration.GetSection("AppSettings:Key").Value;
       var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+      // See obsidian notes for what each TokenValidationParameter properties we've set in the TokenValidationParameters class does
       builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                       .AddJwtBearer(options =>
                       {
