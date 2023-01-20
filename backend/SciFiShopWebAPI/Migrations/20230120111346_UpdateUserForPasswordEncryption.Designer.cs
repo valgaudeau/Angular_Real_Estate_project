@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SciFiShopWebAPI.DBCommunication;
 
@@ -11,9 +12,11 @@ using SciFiShopWebAPI.DBCommunication;
 namespace SciFiShopWebAPI.Migrations
 {
     [DbContext(typeof(DatabaseCommunicator))]
-    partial class DatabaseCommunicatorModelSnapshot : ModelSnapshot
+    [Migration("20230120111346_UpdateUserForPasswordEncryption")]
+    partial class UpdateUserForPasswordEncryption
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -69,6 +72,10 @@ namespace SciFiShopWebAPI.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("Password")
                         .IsRequired()
